@@ -1,0 +1,29 @@
+.sidebar_container {
+  border-right: 1px solid black;
+  padding: 0 calc(10px + 1vw);
+  position: relative;
+}
+
+.sidebar_block {
+  margin-top: 2px;
+}
+
+.special_sidebar_block {
+  position: absolute;
+  bottom: 0;
+}
+
+.sidebar_item {
+  margin-bottom: 12px;
+}
+
+.sidebar_item > * {
+  display: flex;
+  gap: 16px;
+}
+.sidebar_title {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 14px;
+}
+
