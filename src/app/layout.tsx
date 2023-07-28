@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Sidebar } from '@/components/server/navigate/sidebar'
 import { Header } from '@/components/server/header/header'
+import Image from 'next/image'
+import styles from './background_logo.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <div style={{ display: 'flex', minHeight: '100%' }}>
             <Sidebar />
-            <main>{children}</main>
+            <main>
+              {children}{' '}
+              <div className={styles.page_logo}>
+                <Image src='/logo_colored.svg' alt='Next.js Logo' width={400} height={400} priority />
+              </div>
+            </main>
           </div>
         </div>
       </body>

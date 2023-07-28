@@ -1,5 +1,5 @@
 .header_container {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(var(--border-rgb));
   min-height: 60px;
   padding: 0 15px 0 5px;
   display: flex;

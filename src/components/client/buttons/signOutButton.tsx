@@ -5,7 +5,9 @@ export const SignOutButton = (): JSX.Element => {
   return (
     <>
       <div onClick={() => signOut()}>
-        <Image src='/assets/ui/exit.svg' alt='Выйти' width={40} height={40}/>
+        <div className='svg_container'>
+          <Image src='/assets/ui/exit.svg' alt='Выйти' width={40} height={40} />
+        </div>
       </div>
     </>
   )

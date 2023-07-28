@@ -26,7 +26,9 @@ const SidebarItem = ({ name, title }: SidebarItemProps) => {
   return (
     <div className={styles.sidebar_item}>
       <Link href={PATHS[name]}>
-        <Image src={`/assets/sidebar_icons/${name}.svg`} alt={name} width={20} height={20} />
+        <div className='svg_container'>
+          <Image src={`/assets/sidebar_icons/${name}.svg`} alt={name} width={20} height={20} />
+        </div>
         <div className={styles.item_title}>{title}</div>
       </Link>
     </div>
