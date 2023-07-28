@@ -15,10 +15,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Header />
-        <div style={{ display: 'flex', minHeight: '100%' }}>
-          <Sidebar />
-          <main>{children}</main>
+        <div className='app'>
+          <Header />
+          <div style={{ display: 'flex', minHeight: '100%' }}>
+            <Sidebar />
+            <main>{children}</main>
+          </div>
         </div>
       </body>
     </html>

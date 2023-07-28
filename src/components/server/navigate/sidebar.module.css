@@ -1,7 +1,9 @@
 .sidebar_container {
+  font-family: var(--font-mono);
   border-right: 1px solid black;
   padding: 0 calc(10px + 1vw);
   position: relative;
+  min-height: calc(100vh - 60px);
 }
 
 .sidebar_block {
@@ -19,11 +21,14 @@
 
 .sidebar_item > * {
   display: flex;
+  align-items: center;
   gap: 16px;
 }
 .sidebar_title {
+  white-space: nowrap;
   text-align: center;
-  margin-bottom: 10px;
-  margin-top: 14px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  font-size: 1.15rem;
 }
 

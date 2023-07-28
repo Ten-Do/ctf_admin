@@ -57,18 +57,22 @@
 html,
 body {
   height: 100%;
-  max-width: var(--max-width);
   overflow-x: hidden;
 }
 
 body {
-  margin: 0 auto;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
+.app {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 100%;
+  position: relative;
+}
+
 main {
-  display: flex;
   min-height: 100%;
 }
 
