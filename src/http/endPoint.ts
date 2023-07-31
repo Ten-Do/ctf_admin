@@ -1,4 +1,6 @@
-export const SERVER_PATHS = {
+import { Category } from "@/types/category";
+
+export const API_ENDPOINTS = {
   /* AUTH */
   refresh: '/refresh', // get
   login: '/login', // post
@@ -6,24 +8,25 @@ export const SERVER_PATHS = {
   /* TASKS */
   postTask: '/tasks',
   putTask: '/tasks',
-  getTask: (id: number | string) => '/tasks/' + id,
-  getTasks: (category: string, page: number | string) => '/tasks?category=' + category + '&page=' + page,
-  checkTaskFlag: (id: number | string) => '/tasks/' + id, // post
-  deleteTask: (id: number | string) => '/tasks/' + id,
-  downloadTask: (fileName: string) => 'cyberpolygon-files/tasks/' + fileName, // (download file with task)
-  getTaskAnswer: (id: number | string) => '/answer-task/' + id,
+  getTask: (id: number) => '/tasks/' + id,
+  getTasks: (category: Category, page: number) => '/tasks?category=' + category + '&page=' + page,
+  checkTaskFlag: (id: number) => '/tasks/' + id, // post
+  deleteTask: (id: number) => '/tasks/' + id,
+  downloadTask: (fileName: string) => 'tasks/' + fileName, // (download file with task)
+  getTaskAnswer: (id: number) => '/answer-task/' + id,
   /* USERS */
-  getUsers: (page: number | string) => '/users?page=' + page,
-  getNotActivatedUsers: (page: number | string) => '/not-users?page=' + page,
-  getNewUsers: (page: number | string) => '/new-users?page=' + page,
-  getScoreboard: (category: string, page: number | string) => '/scoreboard?category=' + category + '&page=' + page,
-  downloadStudentCard: (id: number | string) => '/cyberpolygon-files/students/' + id,
-  acceptAddCategoryToUser: (id: number | string, category: string) => '/user/' + id + '?category=' + category, // put
-  rejectAddCategoryToUser: (id: number | string, category: string) => '/user/' + id + '?category=' + category, // delete
+  getUsers: (page: number) => '/users?page=' + page,
+  getNotActivatedUsers: (page: number) => '/not-users?page=' + page,
+  getNewUsers: (page: number) => '/new-users?page=' + page,
+  getScoreboard: (category: Category, page: number) => '/scoreboard?category=' + category + '&page=' + page,
+  // downloadStudentCard: (id: number) => '/students/' + id,
+  downloadStudentCard: '/students/',
+  acceptAddCategoryToUser: (id: number) => '/user/' + id, // put
+  rejectAddCategoryToUser: (id: number) => '/user/' + id, // delete
   putUser: '/user', // path by which the user changes his own data
-  deleteUser: (id: number | string) => '/users/' + id,
+  deleteUser: (id: number) => '/users/' + id,
   giveRole: '/give-role', // put
-  deleteCategory: '/user-category/', // deletee [+ id]
+  deleteCategory: (id: number, category: Category) => '/user-category?id=' + id + '&category=' + category, // deletee [+ id]
   logout: '/logout', // delete
   activation: '/activation', // put | delete
 }

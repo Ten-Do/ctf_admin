@@ -1,17 +1,16 @@
 const API = process.env.SERVER_API || 'http://localhost:5000/api'
+const FILE_API = process.env.SERVER_FILES_API || 'http://localhost:5000/cyberpolygon-files'
 
 class HttpClient {
   private baseURL: string
   private baseHeaders: HeadersInit
 
-  constructor(
-    baseURL: string,
-    baseHeaders: HeadersInit = { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' },
-  ) {
-    ;(this.baseURL = baseURL), (this.baseHeaders = baseHeaders)
+  constructor(baseURL: string, baseHeaders?: HeadersInit) {
+    ;(this.baseURL = baseURL),
+      (this.baseHeaders = { 'ngrok-skip-browser-warning': 'true', 'Content-Type': 'application/json', ...baseHeaders })
   }
 
-  private async _handleResponse(response: Response) {
+  private async _handleResponse(response: Response): Promise<{ data: any; status: number }> {
     const data = await response.json()
 
     if (response.ok) {
@@ -21,13 +20,13 @@ class HttpClient {
       }
     } else {
       throw {
-        error: data.message || 'Something went wrong',
+        message: data.message || 'Something went wrong',
         status: response.status,
       }
     }
   }
 
-  async get(url: string, headers: HeadersInit = {}) {
+  async get(url: string, headers?: HeadersInit) {
     const response = await fetch(this.baseURL + url, {
       method: 'GET',
       headers: {
@@ -39,7 +38,7 @@ class HttpClient {
     return this._handleResponse(response)
   }
 
-  async post(url: string, data: any, headers: HeadersInit = {}) {
+  async post(url: string, data: any, headers?: HeadersInit) {
     const response = await fetch(this.baseURL + url, {
       method: 'POST',
       headers: {
@@ -52,7 +51,7 @@ class HttpClient {
     return this._handleResponse(response)
   }
 
-  async put(url: string, data: any, headers: HeadersInit = {}) {
+  async put(url: string, data: any, headers?: HeadersInit) {
     const response = await fetch(this.baseURL + url, {
       method: 'PUT',
       headers: {
@@ -65,13 +64,36 @@ class HttpClient {
     return this._handleResponse(response)
   }
 
-  async delete(url: string, headers: HeadersInit = {}) {
+  async delete(url: string, data?: any, headers?: HeadersInit) {
     const response = await fetch(this.baseURL + url, {
       method: 'DELETE',
       headers: {
         ...this.baseHeaders,
         ...headers,
       },
+      body: data,
+    })
+
+    return this._handleResponse(response)
+  }
+
+  async download(url: string): Promise<Blob> {
+    const response = await fetch(FILE_API + url)
+
+    if (!response.ok) {
+      throw {
+        message: 'Failed to download file.. Try again later',
+        status: response.status,
+      }
+    }
+
+    return await response.blob()
+  }
+
+  async sendForm(url: string, data: FormData, method: string = 'POST') {
+    const response = await fetch(url, {
+      method,
+      body: data,
     })
 
     return this._handleResponse(response)

@@ -20,6 +20,7 @@ export const useModal = () => {
     useEffect(() => {
       document.addEventListener('keydown', onKeydown)
       return () => document.removeEventListener('keydown', onKeydown)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
