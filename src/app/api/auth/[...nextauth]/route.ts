@@ -29,6 +29,7 @@ export const nextAuthOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user, account }) {
       if (account?.provider === 'credentials') {
+        user.userInfo.categories = Object.keys(user.userInfo.categories)
         token.user = user
       }
       return token

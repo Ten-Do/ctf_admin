@@ -1,7 +1,7 @@
-export default function Tasks() {
+export default function Tasks() {  
   return (
     <>
-      <h1>Tasks</h1>
+      <h1>Select the category</h1>
     </>
   )
 }

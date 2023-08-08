@@ -1,10 +1,15 @@
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
-import { DefaultSession, getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth'
+import { signOut } from 'next-auth/react'
 import { API_ENDPOINTS } from './endPoint'
 
 const API = process.env.SERVER_API || 'http://localhost:5000/api'
 const FILE_API = process.env.SERVER_FILES_API || 'http://localhost:5000/cyberpolygon-files'
-const baseHeaders = { 'ngrok-skip-browser-warning': 'true', 'Content-Type': 'application/json', credentials: 'include' }
+const baseHeaders: HeadersInit = {
+  'ngrok-skip-browser-warning': 'true',
+  'Content-Type': 'application/json',
+  credentials: 'include',
+}
 
 const authFetch = async (url: string, config: RequestInit = {}): Promise<Response> => {
   // request interceptor
@@ -22,21 +27,11 @@ const authFetch = async (url: string, config: RequestInit = {}): Promise<Respons
     config.headers = { ...config.headers, Authorization: `Bearer ${session?.user?.accessToken}` }
     response = await fetch(url, config)
   }
+
+  if (!response.ok && response.status === 401) signOut()
+
   return response
 }
-
-// ;async (error) => {
-//     try {
-//       const response = await axios.get(`${API_URL}/refresh`, { withCredentials: true })
-//       localStorage.setItem('token', response.data.accessToken)
-//       return $api.request(originalRequest)
-//     } catch (e) {
-//       console.log(e)
-//       console.log('НЕ АВТОРИЗОВАН')
-//     }
-//   }
-//   throw error
-// }
 
 class HttpClient {
   private baseURL: string
@@ -55,10 +50,12 @@ class HttpClient {
         status: response.status,
       }
     } else {
-      throw {
-        message: data.message || 'Something went wrong',
-        status: response.status,
-      }
+      throw new Error(
+        JSON.stringify({
+          message: data.message || 'Something went wrong',
+          status: response.status,
+        }),
+      )
     }
   }
 
