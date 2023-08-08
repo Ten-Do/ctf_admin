@@ -26,9 +26,14 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+
+.svg_container > img {
+  filter: opacity(0.9);
+}
+
 @media (prefers-color-scheme: dark) {
   .svg_container > img {
-    filter: invert(100%) sepia(0%) saturate(4016%) hue-rotate(294deg) brightness(115%) contrast(89%);
+    filter: invert(100%) sepia(0%) saturate(4016%) hue-rotate(294deg) brightness(115%) contrast(89%) opacity(0.9);
   }
 
   :root {
