@@ -3,12 +3,12 @@ import { Difficulty } from './difficulty'
 
 export interface Task {
   id?: number
-  category: Category
-  difficulty: Difficulty
+  category?: Category
+  difficulty?: Difficulty
   points: number
   title: string
   description: string
   answer?: string
-  task_file?: string | File // task? file?.. на сервере надо унифицировать этот момент.
-  solution?: string | File // file with task solution
+  task_file?: string | File | null // task? file?.. на сервере надо унифицировать этот момент.
+  solution?: string | File | null // file with task solution
 }

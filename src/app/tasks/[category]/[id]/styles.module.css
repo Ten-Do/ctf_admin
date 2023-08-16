@@ -1,0 +1,144 @@
+.container {
+  /* padding: 16px calc(10px + 1vw); */
+  /* border: 1px solid rgba(var(--callout-border-rgba));
+  background-color: rgb(var(--callout-rgba));
+  border-radius: var(--border-radius); */
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.additional {
+  margin-left: 2vw;
+  padding: 8px;
+  font-family: var(--font-mono);
+  min-width: max-content;
+  border: 1px solid rgba(var(--callout-border-rgba));
+  background-color: rgb(var(--callout-rgba));
+  border-radius: var(--border-radius);
+  height: min-content;
+}
+
+.additional > p {
+  margin-bottom: 4px;
+}
+
+.additional > p:last-child {
+  margin-bottom: 0;
+}
+
+.additional > p > span {
+  margin-left: min(90px, calc(14px + 4vw));
+  float: right;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  align-self: center;
+  flex: 1;
+  /* font-family: var(--font-mono); */
+  font-size: 2.5rem;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-top: 26px;
+  font-weight: 300;
+  text-align: justify;
+  padding: 0 2%;
+}
+
+.actions {
+  font-family: var(--font-mono);
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.file_btn {
+  width: 255px;
+  height: 63px;
+  background-color: #34495e;
+  font-size: 32px;
+  border-radius: 7px;
+  font-weight: 100;
+  color: white;
+  margin-right: 40px;
+}
+
+.flag_field {
+  width: 442px;
+  height: 63px;
+  border: 2px solid #5c5c5c;
+  border-radius: 7px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+.submit_btn {
+  width: 182px;
+  height: 72px;
+  border: 2px solid #62cb31;
+  border-radius: 22px;
+  font-size: 30px;
+  color: #62cb31;
+  background-color: white;
+  margin-left: 40px;
+}
+
+.btl__content {
+  margin-top: 18px;
+}
+
+.btl__cards {
+  margin-top: 77px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btl__card {
+  width: 444px;
+  height: 252px;
+  border: 1px solid #acacac;
+  border-radius: 11px;
+}
+
+.btl__card_content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 33px;
+  margin-top: 27px;
+}
+
+.btl__title {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+.btl__description {
+  font-size: 24px;
+  font-weight: 100;
+  margin-bottom: 47px;
+}
+
+.btl__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btl__points {
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.btl__getcard {
+  margin-right: 33px;
+}
