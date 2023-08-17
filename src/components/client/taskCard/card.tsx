@@ -2,9 +2,8 @@ import { Task } from '@/types/task'
 import Link from 'next/link'
 import styles from './card.module.css'
 
-interface PureTask extends Omit<Task, 'answer' | 'solution' | 'task_file'> {}
 type TaskCardProps = {
-  data: PureTask
+  data: Task
 }
 
 export const TaskCard = ({ data: { id, title, category, points, difficulty, description } }: TaskCardProps) => {
