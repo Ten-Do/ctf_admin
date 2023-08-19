@@ -50,12 +50,9 @@ class HttpClient {
         status: response.status,
       }
     } else {
-      throw new Error(
-        JSON.stringify({
-          message: data.message || 'Something went wrong',
-          status: response.status,
-        }),
-      )
+      throw {
+        message: { text: data.message || 'Something went wrong', status: response.status },
+      }
     }
   }
 
@@ -68,7 +65,7 @@ class HttpClient {
       },
     })
 
-    return this._handleResponse(response)
+    return await this._handleResponse(response)
   }
 
   async post(url: string, data: any, headers?: HeadersInit) {
@@ -79,9 +76,10 @@ class HttpClient {
         ...headers,
       },
       body: JSON.stringify(data),
+      // body: data
     })
 
-    return this._handleResponse(response)
+    return await this._handleResponse(response)
   }
 
   async put(url: string, data: any, headers?: HeadersInit) {
@@ -94,7 +92,7 @@ class HttpClient {
       body: JSON.stringify(data),
     })
 
-    return this._handleResponse(response)
+    return await this._handleResponse(response)
   }
 
   async delete(url: string, data?: any, headers?: HeadersInit) {
@@ -107,10 +105,10 @@ class HttpClient {
       body: data,
     })
 
-    return this._handleResponse(response)
+    return await this._handleResponse(response)
   }
 
-  async download(url: string): Promise<Blob> {
+  async download(url: string, saveas: string): Promise<void> {
     const response = await authFetch(FILE_API + url)
 
     if (!response.ok) {
@@ -120,7 +118,16 @@ class HttpClient {
       }
     }
 
-    return await response.blob()
+    return await response.blob().then((data) => {
+      const url = window.URL.createObjectURL(data),
+        anchor = document.createElement('a')
+      anchor.href = url
+      anchor.download = saveas
+      anchor.click()
+
+      window.URL.revokeObjectURL(url)
+      document.removeChild(anchor)
+    })
   }
 
   async sendForm(url: string, data: FormData, method: string = 'POST') {
@@ -129,7 +136,7 @@ class HttpClient {
       body: data,
     })
 
-    return this._handleResponse(response)
+    return await this._handleResponse(response)
   }
 }
 

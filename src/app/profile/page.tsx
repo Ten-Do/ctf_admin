@@ -1,8 +1,11 @@
-export default function Tasks() {
-  return (
+import { getServerSession } from 'next-auth'
+import { nextAuthOptions } from '../api/auth/[...nextauth]/route'
 
+export default async function Profile() {
+  const session = await getServerSession(nextAuthOptions)
+  return (
     <>
-      <h1>User&#39;s Profile</h1>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
     </>
   )
 }
