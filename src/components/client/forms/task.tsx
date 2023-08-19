@@ -54,21 +54,33 @@ const Task_Form = ({ data = defaultData, submitHandler }: TaskFormProps) => {
         <textarea id='description' name='description' rows={4} defaultValue={data.description} required></textarea>
 
         <label htmlFor='category'>Категория</label>
-        <select id='category' name='category' defaultValue={data.category}>
-          {categories.map((category) => (
-            <option value={category} key={category}>
-              {category}
-            </option>
-          ))}
+        <select id='category' name='category'>
+          {categories.map((category) =>
+            category === data?.category ? (
+              <option value={category} key={category} selected>
+                {category}
+              </option>
+            ) : (
+              <option value={category} key={category}>
+                {category}
+              </option>
+            ),
+          )}
         </select>
 
         <label htmlFor='difficulty'>Сложность</label>
-        <select id='difficulty' name='difficulty' defaultValue={data.difficulty}>
-          {difficulty.map((elem) => (
-            <option value={elem} key={elem}>
-              {elem}
-            </option>
-          ))}
+        <select id='difficulty' name='difficulty'>
+          {difficulty.map((elem) =>
+            elem === data?.difficulty ? (
+              <option value={elem} key={elem} selected>
+                {elem}
+              </option>
+            ) : (
+              <option value={elem} key={elem}>
+                {elem}
+              </option>
+            ),
+          )}
         </select>
 
         <label htmlFor='answer'>Ответ</label>
@@ -92,20 +104,6 @@ const Task_Form = ({ data = defaultData, submitHandler }: TaskFormProps) => {
 
         <label htmlFor='solution'>Файл с решением</label>
         <textarea id='solution' name='solution' rows={4} defaultValue={data.description} required></textarea>
-        {/* <input
-          type='file'
-          id='solution'
-          name='solution'
-          onChange={({ target }) => {
-            const file = target.files![0]
-            if (solutionFileRef.current!.href) URL.revokeObjectURL(solutionFileRef.current!.href)
-            solutionFileRef.current!.href = URL.createObjectURL(file)
-            solutionFileRef.current!.download = file.name
-          }}
-        />
-        <a ref={solutionFileRef} download>
-          F I L E
-        </a> */}
 
         <button type='submit'>Submit</button>
       </form>

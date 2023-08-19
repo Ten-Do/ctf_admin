@@ -6,7 +6,7 @@ export default async function Category({ params: { category } }: { params: { cat
 
   return (
     <>
-      <CardPlaceholder category={category} loadMore={$getTasks} />
+      <CardPlaceholder origin='tasks' category={category} loadMore={$getTasks} />
     </>
   )
 }

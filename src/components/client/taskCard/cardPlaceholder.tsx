@@ -9,9 +9,11 @@ import { Category } from '@/types/category'
 type Data = { tasks: Task[]; nextPage: number | null }
 
 export const CardPlaceholder = ({
+  origin,
   category,
   loadMore,
 }: {
+  origin: string, 
   category: Category
   loadMore: (category: Category, nextPage: number) => Promise<Data>
 }) => {
@@ -38,7 +40,7 @@ export const CardPlaceholder = ({
     <>
       <div className={styles.grid}>
         {data.tasks.map((task: Task) => (
-          <TaskCard data={task} key={task.id} />
+          <TaskCard origin={origin} data={task} key={task.id} />
         ))}
       </div>
       {data.nextPage && (
