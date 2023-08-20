@@ -1,0 +1,110 @@
+.unusers{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.unusers input,.unusers button {
+    background-color: inherit;
+    border: 0;
+    outline: none;
+
+}
+
+.unusers_tittle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.unusers_p{
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.users_search{
+    display: flex;
+    width: 342px;
+    height: 50px;
+    background: rgba(var(--callout-border-rgba));
+    border-radius: 31px;
+}
+.search_input{
+    margin-top: 17px;
+    margin-left: 20px;
+}
+.search_input input{
+    background-color: inherit;
+    font-size: 18px;
+}
+.img_search{
+    margin-top: 13px;
+    position: absolute;
+    margin-left: 288px;
+}
+
+.user_reg{
+    margin-top: 47px;
+    border-top: 1px solid rgba(var(--foreground-rgb));
+    border-bottom: 1px solid rgba(var(--foreground-rgb));
+}
+.user_data{
+    display: flex;
+    margin-left: 19px;
+    margin-top: 47px;
+    margin-bottom: 44px;
+}
+.stud_ticket{
+    width: 461px;
+    height: 219px;
+    background: rgba(var(--callout-border-rgba));
+}
+.stud_ticket input{
+    width: 461px;
+    height: 219px;
+    opacity: 0;
+    position: absolute;
+}
+.stud_ticket p{
+    position: absolute;
+    font-size: 20px;
+    color: rgba(var(--foreground-rgb));
+    margin-top: 92px;
+    margin-left: 122px;
+}
+.user_reg_data{
+    margin-left: 24px;
+    margin-top: 23px;
+    font-size: 24px;
+}
+.name_surname, .email, .categoria{
+    display: flex;
+    margin-bottom: 17px;
+    color: rgba(var(--foreground-rgb));
+}
+.name_input, .email_input, .categoria_input{
+    margin-left: 17px;
+    font-weight: 700;
+}
+.categoria_input{
+    color: rgba(var(--foreground-rgb));
+    font-weight: 400;
+}
+.reg_buttons{
+    display: flex;
+    position: absolute;
+    margin-left: 915px;
+    margin-top: -65px;
+}
+
+.reg_aply{
+    margin-left: 16px;
+}
+.reg_aply button{
+    width: 155px;
+    height: 53px;
+    border-radius: 5px;
+    background-color:rgba(var(--callout-border-rgba));
+    font-size: 24px;
+    color: rgba(var(--foreground-rgb));
+    margin-top: -10px;
+}
