@@ -1,0 +1,82 @@
+.request {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.request_tittle{
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(var(--foreground-rgb));
+    margin-left: 2px;
+}
+.user_block{
+    margin-top: 28px;
+}
+
+.user{
+    margin-top: 9px;
+    display: flex;
+    background: rgba(var(--callout-border-rgba));
+    font-size: 20px;
+    border-radius: 31px;
+    height: 73px;
+    width: 465px;
+}
+
+.request_button{
+    display: flex;
+}
+.request_button button{
+    background: #D9D9D9;
+    border-radius: 50%;
+}
+.user_items{
+    display: flex;
+    padding-left: 22px;
+    padding-right: 13px;
+}
+
+.button_plus{
+    margin-top: 5px;
+    margin-right: 6px;
+}
+
+.button_plus button {
+    border: 0;
+    background-color: inherit;
+}
+.button_minus{
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.button_minus button {
+    border: 0;
+    background-color: inherit;
+}
+
+.D_Plus{
+    display: none;
+}
+.D_Minus{
+    display: none;
+}
+.D_Trash{
+    display: none;
+}
+
+.name{
+    text-decoration: underline;
+    margin-top: 23px;
+}
+.category{
+    margin-top: 22px;
+    position: absolute;
+    margin-left: 206px;
+    font-weight: 700;
+}
+.request_button{
+    position: absolute;
+    margin-left: 344px;
+    margin-top: 10px;
+}

@@ -1,0 +1,199 @@
+.fixed_container {
+	width: 1012px;
+	height: 435px;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 41px;
+	margin-top: 35px;
+}
+
+.main_container {
+	width: 689px;
+	height: 435px;
+	background: rgba(var(--callout-rgb));
+	border: 2px solid rgb(var(--border-rgb));
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	
+}
+	
+	.main_container_info {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		width: 330px;
+		height: 335px;
+	}
+
+		.main_container_info label{
+			font-weight: 300;
+			font-size: 20px;
+			margin-left: 15px;
+			margin-bottom: 6px;
+		}
+
+		.main_container_info h1{
+			font-weight: 500;
+			font-size: 24px;
+			color: rgba(var(--callout-rgb));
+		}
+
+	.forma2 {
+		margin-top: 16px;
+		margin-left: 28px;
+		width: 646px;
+		height: 400px;
+		display: flex;
+		justify-content: space-between;
+		
+	}
+
+	.main_container_info div {
+		width: 326px;
+		height: 73px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.forma2 input {
+		width: 326px;
+		height: 47px;
+		background: rgba(var(--callout-border-rgba));
+		border-radius: 5px;
+		border: 0px;
+		font-weight: 300;
+		font-size: 20px;
+		color: rgba(var(--callout-rgb));
+		text-indent: 15px;
+
+	}
+
+	.main_container_button {
+		width: 148px;
+		height: 400px;
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+	}
+
+		.main_container_button button {
+			width: 148px;
+			height: 53px;
+			background: rgba(var(--callout-border-rgba));
+			border-radius: 5px;
+			font-weight: 400;
+			font-size: 24px;
+			color: rgba(var(--callout-rgb));
+			border: 0px;
+		}
+
+	.right_container {
+		width: 277px;
+		height: 435px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.right_container button {
+		border: 0px;
+		width:39px ;
+		height: 39px;
+		margin-right: 12px;
+	}
+
+		.right_container_top {
+			width: 277px;
+			height: 126px;
+			margin-top:	 12px;
+		}
+
+		.right_container_top1{
+			width: 265px;
+			height: 67px;
+			padding-left: 12px;
+			background: rgba(var(--callout-border-rgba));
+			border-radius: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-weight: 500;
+			font-size: 20px;
+			color: rgba(var(--callout-rgb));
+		}
+
+		.right_container_top p{
+			font-weight: 500;
+			font-size: 24px;
+			color:  rgb(var(--callout-rgb));
+			margin-left: 12px;
+		}
+
+		.right_container_bottom {
+			width: 277px;
+			height: 221px;
+			margin-bottom: 12px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+        .right_container_bottom2 {
+			width: 265px;
+			height: 67px;
+			padding-left: 12px;
+			background: rgba(var(--callout-border-rgba));
+			border-radius: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-weight: 500;
+			font-size: 20px;
+			color:  rgba(var(--callout-rgb));
+		}
+
+        .right_container_bottom1 {
+            width: 265px;
+			height: 67px;
+			padding-left: 12px;
+			background: rgba(var(--callout-border-rgba));
+			border-radius: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-weight: 500;
+			font-size: 20px;
+			color:  rgba(var(--callout-rgb));
+        }
+
+		.right_container_bottom p{
+			margin: 0px	;
+			font-weight: 500;
+			font-size: 24px;
+			color: rgb(var(--callout-rgb));
+			margin-left: 12px;
+		}
+
+	.delete_icon {
+		width: 39px;
+		height: 39px;
+		margin-right: 7px;
+	}
+
+	.stud_bilet_logo {
+		margin-right: 7px;
+	}
+
+	.delete_icon {
+	display: block;
+}
+
+.delete_icon_night {
+	display: none;
+}
+
+.container_button {
+    background-color:rgb(var(--callout-rgb));
+}
+
