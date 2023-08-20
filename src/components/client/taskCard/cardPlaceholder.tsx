@@ -12,10 +12,12 @@ export const CardPlaceholder = ({
   origin,
   category,
   loadMore,
+  addCategoryToOrigin,
 }: {
-  origin: string, 
+  origin: string
   category: Category
   loadMore: (category: Category, nextPage: number) => Promise<Data>
+  addCategoryToOrigin?: boolean
 }) => {
   const [data, setData] = useState<Data>({ tasks: [], nextPage: 1 })
   const { ref, inView } = useInView()
@@ -40,7 +42,7 @@ export const CardPlaceholder = ({
     <>
       <div className={styles.grid}>
         {data.tasks.map((task: Task) => (
-          <TaskCard origin={origin} data={task} key={task.id} />
+          <TaskCard origin={addCategoryToOrigin ? origin + '/' + task.category : origin} data={task} key={task.id} />
         ))}
       </div>
       {data.nextPage && (

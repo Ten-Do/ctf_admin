@@ -1,0 +1,55 @@
+.overlay {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-name: appear;
+  animation-duration: 300ms;
+}
+
+.wrapper {
+  border-radius: var(--border-radius);
+  background-color: rgba(var(--callout-rgba));
+  border: 2px solid rgba(var(--callout-border-rgba));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  padding: 1.5rem;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slide-in;
+  animation-duration: 0.5s;
+
+  @media (min-width: 640px) {
+    width: 83.333333%;
+  }
+  @media (min-width: 768px) {
+    width: 66.666667%;
+  }
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(-150px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
