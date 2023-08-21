@@ -22,7 +22,7 @@ const Requests = () => {
               </button></div>
               <div className={styles.button_minus} onClick={() => UserService.delete(1)}><button>
                 <div className="svg_container">
-                  <Image src={'/assets/rating_icons/cross.svg'} alt="" width={35} height={35} className="L_Minus" />
+                  <Image src={'/assets/rating_icons/cross.svg'} alt="" width={40} height={40} className="L_Minus" />
                 </div>
               </button></div>
             </div>
@@ -41,7 +41,7 @@ const Requests = () => {
               </button></div>
               <div className={styles.button_minus} onClick={() => UserService.delete(1)}><button>
                 <div className="svg_container">
-                  <Image src={'/assets/rating_icons/cross.svg'} alt="" width={35} height={35} className="L_Minus" />
+                  <Image src={'/assets/rating_icons/cross.svg'} alt="" width={40} height={40} className="L_Minus" />
                 </div>
               </button></div>
             </div>
