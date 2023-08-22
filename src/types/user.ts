@@ -1,7 +1,7 @@
 import { Category } from "./category"
 
 export interface User {
-  id?: number
+  id: number
   email?: string
   nickname?: string
   name?: string

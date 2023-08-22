@@ -156,11 +156,6 @@ hr {
   font-family: var(--font-mono);
 }
 
-.loader-container {
-  min-height: 100px;
-  margin-top: 30px;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
