@@ -1,10 +1,12 @@
 :root {
   --max-width: 1600px;
   --border-radius: 12px;
+  --border-radius-s: 8px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
     'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
+  --font-size-content: 1.3rem;
   --foreground-rgb: 0, 0, 0;
+  --foreground-rgba: 0, 0, 0, 0.75;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
@@ -22,7 +24,7 @@
 
   --callout-rgba: 238, 240, 241, 0.6;
   --callout-border-rgba: 172, 175, 176, 0.5;
-  --card-rgb: 180, 185, 188;
+  --card-rgb: 200, 205, 208;
   --card-border-rgb: 131, 134, 135;
 }
 
@@ -37,6 +39,7 @@
 
   :root {
     --foreground-rgb: 241, 241, 241;
+    --foreground-rgba: 241, 241, 241, 0.8;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
@@ -47,7 +50,7 @@
 
     --callout-rgba: 20, 20, 20, 0.6;
     --callout-border-rgba: 108, 108, 108, 0.5;
-    --card-rgb: 100, 100, 100;
+    --card-rgb: 50, 50, 50;
     --card-border-rgb: 200, 200, 200;
   }
 }
@@ -154,6 +157,19 @@ hr {
 .code {
   font-weight: 700;
   font-family: var(--font-mono);
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--callout-rgba));
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+}
+
+.card:hover {
+  background: rgba(var(--card-rgb), 0.1);
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
