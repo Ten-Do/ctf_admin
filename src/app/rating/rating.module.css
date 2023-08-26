@@ -1,163 +1,75 @@
 .backgroundSquare {
-	padding: 3px;
-    margin-top: 25px;
-    background-color: rgba(var(--callout-rgb), 0.5);
-	border: 2px solid rgb(var(--border-rgb));
-	margin-right: auto;
-	margin-left: auto;
-	width: 1187px;
-	height: 1834px;
-	border-radius: 30px;
+	margin: 45px 25px 0;
 	display: flex;
+	grid-gap: 10px;
 	align-content: center;
 	justify-content: flex-start;
 	position: relative;
 	align-items: center;
-	overflow: auto;
+	overflow: hidden;
 	flex-direction: column;
 }
 
+
 .topPanel {
-	width: 1100px;
-	height: 197px;
-	/*background-color: var(--foreground-rgb);*/
-	border-radius: 30px;
-	margin-top: 39px;
-	margin-bottom: 23px;
-	position: relative;
+	width: 350px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+	padding: 15px;
+	border: 2px solid rgba(var(--callout-border-rgba));
+	border-radius: 15px;
+	margin: 0 auto 0 0 ;
+
 }
 	.topPanelName {
-		position: absolute;
 		font-weight: 700;
 		font-size: 40px;
-		top: 20px;
-		left: 30px;
 	}
 
 	.topPanelPlace {
-		position: absolute;
 		font-weight: 400;
 		font-size: 36px;
-		top: 100px;
-		left: 30px;
-	}
-
-	.topPanelCompletedTasks {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		position: absolute;
-		top: 90px;
-		left: 735px;
-		width: 70px;
-		height: 51px;
-	}
-
-		.topPanelCompletedTasksText {
-			font-weight: 600;
-			font-size: 48px;
-
-		}
-
-		.checkLogo {
-			width: 27px;
-			height: 20px;
-		}
-
-	.topPanelUncompletedTasks {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		position: absolute;
-		left: 820px;
-		top: 90px;
-		width: 80px;
-		height: 51px;
-	}
-
-		.topPanelUncompletedTasksText {
-			font-weight: 600;
-			font-size: 48px;
-			color: #7E7E7E;
-
-		}
-
-		.crossLogo {
-			width: 20px;
-			height: 20px;
-		}
-
-
-.categoriesPanel {
-	width: 1100px;
-	height: 108px;
-	background: #D2EAFF;
-	border-radius: 30px;
-}
-
-	.categoriesPanelInside {
-		margin-top: 22px;
-		margin-left: 27px;
-		width: 1046px;
-		height: 63px;
-		background: #89AAC8;
-		border-radius: 20px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.categoriesPanelInside button {
-		font-weight: 400;
-		font-size: 24px;
-		background-color:#89AAC8;
-		border-radius: 20px;
-		padding: auto;
-		border: 0px;
-		height: 63px;
-		cursor: pointer;
-
-	}
-
-	.categoriesPanelInside button:active {
-		background-color: white;
+		color: rgba(var(--foreground-rgba));
 	}
 
 .triplePanel {
-	margin-top: 24px;
-	margin-bottom: 23px;
+	width: 100%;
 	display: flex;
-	width: 1100px;
-	justify-content:space-between ;
+	justify-content:space-between;
+	margin-bottom: 20px;
 }
 
-	.triplePanelFirst {
+
+	.triplePanelElement{
 		width: 330px;
 		height: 156px;
-		background: linear-gradient(102.97deg, rgba(66, 191, 240, 0.6) 0%, rgba(31, 91, 178, 0.6) 44.27%, rgba(226, 24, 81, 0.6) 100%);
 		border-radius: 30px;
 	}
 
-
-	.triplePanelSecond {
-		width: 330px;
-		height: 156px;
-		background: linear-gradient(102.6deg, rgba(98, 191, 234, 0.6) 0%, rgba(78, 120, 189, 0.6) 100%);
-		border-radius: 30px;	
+	.triplePanelElement:first-child{
+		background:linear-gradient(315deg, #444444, #FFFFFF, #444444);
+		margin-top: 45px;
 	}
 
-	.triplePanelThird {
-		width: 330px;
-		height: 156px;
-		background: linear-gradient(102.6deg, rgba(97, 186, 231, 0.6) 70.38%, rgba(82, 133, 198, 0.6) 100%);
-		border-radius: 30px;
+
+	.triplePanelElement:nth-child(2){
+		background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+	}
+
+	.triplePanelElement:nth-child(3){
+		margin-top: 80px;
+		background: linear-gradient(45deg, rgba(205, 127, 50, 1) 0%, rgba(205, 127, 50, 1) 30%, rgba(255, 215, 0, 1) 50%, rgba(205, 127, 50, 1) 70%, rgba(205, 127, 50, 1) 100%);
 	}
 
 	.triplePanelName {
 		margin-top: 22px;
 		margin-left: 30px;
 		font-weight: 700;
-		font-size: 24px;
+		font-size: 26px;
 	}
 
 	.triplePanelPlace {
@@ -176,7 +88,7 @@
 	}
 
 .normalPanel {
-	width: 1100px;
+	width: 100%;
 	height: 72px;
 	background-color: rgba(var(--border-rgb), 0.5);
 	border-radius: 20px;
@@ -186,36 +98,17 @@
 	.normalPanelText {
 		font-weight: 700;
 		font-size: 32px;
-		margin-top: 22px;
-		margin-left: 22px;
+		padding: 20px;
 	}
 
-.skill {
-	position: absolute;
-	width: 160px;
-	height: 160px;
-	top: 25px;
-	left: 935px;
-}
-
-.outer {
-	width: 	160px;
-	height: 160px;
-	border-radius: 50%;
-	padding: 20px;
-}
-
-.inner {
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
+.mainPanel {
+	width: 100%;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-
+	justify-content: space-between;
+	gap: 10px	;
 }
-
-.number {
-	font-weight: 700;
-	font-size: 32px;
+.mainPanelColumn {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
 }
