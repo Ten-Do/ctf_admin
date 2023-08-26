@@ -38,12 +38,12 @@ export class TaskService {
   "task_file": "(название файла)"}
    */
 
-  static async add(newTask: Task): Promise<{ status: number; data: { message: string } }> {
-    return await $api.post(API_ENDPOINTS.postTask, { ...newTask, task: newTask.task_file })
+  static async add(newTask: FormData): Promise<{ status: number; data: { message: string } }> {
+    return await $api.sendForm(API_ENDPOINTS.postTask, newTask)
   }
 
-  static async edit(newTask: Task): Promise<{ status: number; data: { message: string } }> {
-    return await $api.put(API_ENDPOINTS.putTask, { ...newTask, task: newTask.task_file })
+  static async edit(newTask: FormData): Promise<{ status: number; data: { message: string } }> {
+    return await $api.sendForm(API_ENDPOINTS.putTask, newTask, 'PUT' )
   }
 
   static async delete(taskId: number): Promise<{ status: number; data: { message: string } }> {

@@ -36,9 +36,16 @@ const authFetch = async (url: string, config: RequestInit = {}): Promise<Respons
 class HttpClient {
   private baseURL: string
   private baseHeaders?: HeadersInit
+  private sendFormHeaders?: HeadersInit
 
-  constructor(baseURL: string, baseHeaders?: HeadersInit) {
+  constructor(baseURL: string, baseHeaders: HeadersInit = {}) {
     ;(this.baseURL = baseURL), (this.baseHeaders = baseHeaders)
+    this.sendFormHeaders = {}
+    for (const key in baseHeaders) {
+      if (key !== 'Content-Type') {
+        this.sendFormHeaders[key] = baseHeaders[key]
+      }
+    }
   }
 
   private async _handleResponse(response: Response): Promise<{ data: any; status: number }> {
@@ -131,8 +138,11 @@ class HttpClient {
   }
 
   async sendForm(url: string, data: FormData, method: string = 'POST') {
-    const response = await authFetch(url, {
+    const response = await authFetch(this.baseURL + url, {
       method,
+      headers: {
+        ...this.sendFormHeaders,
+      },
       body: data,
     })
 
