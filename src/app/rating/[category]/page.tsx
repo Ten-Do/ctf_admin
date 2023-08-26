@@ -10,26 +10,55 @@ async function Rating({ params: { category } }: { params: { category: Category }
   console.log(raiting)
   return (
     <>
-      {/* <div className={styles.triplePanel}>
-        <div className={styles.triplePanelFirst}>
-          <div className={styles.triplePanelName}>Name</div>
-          <div className={styles.triplePanelPlace}>1 место</div>
-          <div className={styles.triplePanelScore}>120</div>
-        </div>
-        <div className={styles.triplePanelSecond}>
+      <div className={styles.triplePanel}>
+
+        <div className={styles.triplePanelElement}>
           <div className={styles.triplePanelName}>Name</div>
           <div className={styles.triplePanelPlace}>2 место</div>
           <div className={styles.triplePanelScore}>110</div>
         </div>
-        <div className={styles.triplePanelThird}>
+
+        <div className={styles.triplePanelElement}>
+          <div className={styles.triplePanelName}>Name</div>
+          <div className={styles.triplePanelPlace}>1 место</div>
+          <div className={styles.triplePanelScore}>120</div>
+        </div>
+
+        <div className={styles.triplePanelElement}>
           <div className={styles.triplePanelName}>Name</div>
           <div className={styles.triplePanelPlace}>3 место</div>
           <div className={styles.triplePanelScore}>109</div>
         </div>
-      </div> */}
+
+      </div>
+      <div className={styles.mainPanel}>
+        <div className={styles.mainPanelColumn}>
+          <div className={styles.normalPanel}>
+            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
+          </div>
+          <div className={styles.normalPanel}>
+            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
+          </div>
+          <div className={styles.normalPanel}>
+            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
+          </div>
+          
+        </div>
+        <div className={styles.mainPanelColumn}>
+        <div className={styles.normalPanel}>
+            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
+          </div>
+          <div className={styles.normalPanel}>
+            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
+          </div>
+          <div className={styles.normalPanel}>
+            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
+          </div>
+        </div>
+      </div>
       {raiting.topUser?.map((user, i) => (
         <div className={styles.normalPanel} key={user.id}>
-          <div className={styles.normalPanelText}>{i + '  |  ' + user.nickname} <span style={{float: 'right'}}>{user.score || 0}</span></div>
+          <div className={styles.normalPanelText}>{i + '  |  ' + user.nickname} <span style={{ float: 'right' }}>{user.score || 0}</span></div>
         </div>
       ))}
     </>
