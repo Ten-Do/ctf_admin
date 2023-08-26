@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-//import { useInView } from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer'
 import styles from './styles.module.css'
 
 export type State = {
