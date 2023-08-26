@@ -1,8 +1,6 @@
 import { getServerSession } from 'next-auth'
 import { nextAuthOptions } from '../api/auth/[...nextauth]/route'
 import styles from './profile.module.css';
-import delLogo from '@/../public/assets/profile_icons/delete.svg'
-import plusLogo from '@/../public/assets/profile_icons/add.svg'
 import Image from 'next/image';
 
 export default async function Profile() {
@@ -39,7 +37,7 @@ export default async function Profile() {
               Название категории
               <button className={styles.container_button}>
                 <div >
-                  <Image src={delLogo} alt={'delLogo'} width={37} height={37} />
+                  <Image src={'/assets/ui/delete.svg'} alt={'delLogo'} width={37} height={37} />
                 </div>
                 
               </button>
@@ -51,7 +49,7 @@ export default async function Profile() {
               Название категории
               <button className={styles.container_button}>
                 <div >
-                <Image src={plusLogo} alt={'plusLogo'} width={37} height={37} />
+                <Image src={'/assets/ui/add.svg'} alt={'plusLogo'} width={37} height={37} />
                 </div>
                 
               </button>
@@ -60,7 +58,7 @@ export default async function Profile() {
               Название категории
               <button className={styles.container_button} >
                 <div >
-                <Image src={plusLogo} alt={'plusLogo'} width={37} height={37} />
+                <Image src={'/assets/ui/add.svg'} alt={'plusLogo'} width={37} height={37} />
                 </div>
               </button>
             </div>

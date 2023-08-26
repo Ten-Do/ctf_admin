@@ -17,12 +17,12 @@ const Requests = () => {
             <div className={styles.request_button}>
               <div className={styles.button_plus} onClick={() => UserService.update('1', '1', [], [])}><button>
                 <div className="svg_container">
-                  <Image src={'/assets/profile_icons/add.svg'} alt="" width={40} height={40} className="L_Plus" />
+                  <Image src={'/assets/ui/add.svg'} alt="" width={40} height={40} className="L_Plus" />
                 </div>
               </button></div>
               <div className={styles.button_minus} onClick={() => UserService.delete(1)}><button>
                 <div className="svg_container">
-                  <Image src={'/assets/rating_icons/cross.svg'} alt="" width={40} height={40} className="L_Minus" />
+                  <Image src={'/assets/ui/reject.svg'} alt="" width={40} height={40} className="L_Minus" />
                 </div>
               </button></div>
             </div>
@@ -36,12 +36,12 @@ const Requests = () => {
             <div className={styles.request_button}>
               <div className={styles.button_plus} onClick={() => UserService.update('1', '1', [], [])}><button>
               <div className="svg_container">
-                  <Image src={'/assets/profile_icons/add.svg'} alt="" width={40} height={40} className="L_Plus" />
+                  <Image src={'/assets/ui/add.svg'} alt="" width={40} height={40} className="L_Plus" />
                 </div>
               </button></div>
               <div className={styles.button_minus} onClick={() => UserService.delete(1)}><button>
                 <div className="svg_container">
-                  <Image src={'/assets/rating_icons/cross.svg'} alt="" width={40} height={40} className="L_Minus" />
+                  <Image src={'/assets/ui/reject.svg'} alt="" width={40} height={40} className="L_Minus" />
                 </div>
               </button></div>
             </div>
