@@ -84,7 +84,7 @@ const Task_Form = ({ data = defaultData, submitHandler }: TaskFormProps) => {
         </select>
 
         <label htmlFor='answer'>Ответ</label>
-        <input type='email' id='answer' name='answer' defaultValue={data.answer} required />
+        <input type='text' id='answer' name='answer' defaultValue={data.answer} required />
 
         <label htmlFor='task_file'>Файл с заданием</label>
         <input
@@ -102,7 +102,7 @@ const Task_Form = ({ data = defaultData, submitHandler }: TaskFormProps) => {
           F I L E
         </a>
 
-        <label htmlFor='solution'>Файл с решением</label>
+        <label htmlFor='solution'>Решение</label>
         <textarea id='solution' name='solution' rows={4} defaultValue={data.description} required></textarea>
 
         <button type='submit'>Submit</button>

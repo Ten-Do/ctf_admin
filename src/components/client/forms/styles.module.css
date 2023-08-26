@@ -19,15 +19,16 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid rgb(var(--card-border-rgb));
-  border-radius: 8px;
+  border: 1px solid rgba(var(--callout-border-rgba));
+  border-radius: var(--border-radius-s);
+  background-color: rgba(var(--background-start-rgb), 0.3);
 }
 
 .form button {
-  color: white;
+  color: rgb(var(--background-start-rgb));
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: blue;
+  background-color: rgb(var(--foreground-rgb));
 }
 

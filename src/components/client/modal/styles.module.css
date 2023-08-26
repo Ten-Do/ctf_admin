@@ -1,4 +1,7 @@
 .overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 10;
   left: 0;
@@ -16,13 +19,10 @@
   background-color: rgba(var(--callout-rgba));
   border: 2px solid rgba(var(--callout-border-rgba));
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
   width: 100%;
   padding: 1.5rem;
   -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
+  -webkit-animation-duration: 0.5s;
   animation-name: slide-in;
   animation-duration: 0.5s;
 
