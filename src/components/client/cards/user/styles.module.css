@@ -1,0 +1,35 @@
+.card_container {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(var(--callout-border-rgba)) !important;
+  justify-content: space-between;
+  font-size: var(--font-size-content);
+  border-radius: 0 !important;
+}
+
+.info {
+  max-width: calc(100% - 60px + 0px);
+  text-align: initial;
+}
+
+.nickname {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name,
+.email {
+  font-size: var(--font-size-secondary);
+  color: rgba(var(--foreground-rgba));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.del_btn {
+  margin-left: 20px;
+}

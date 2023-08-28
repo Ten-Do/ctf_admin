@@ -1,108 +1,82 @@
-.users_user{
-    display: flex;
-    align-items: center;
-    height: 100px;
-    font-size: 20px;
-    border: 2px solid rgba(var(--callout-border-rgba));
-    justify-content: space-between;
-    
-}
-
 .users_users_content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    grid-gap: 5px;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-gap: 5px;
 }
 
 .users_users_column {
-    width: 33.33%;
-    grid-gap: 5px;
-    display: flex;
-    flex-direction: column;
-
+  width: 33.33%;
+  grid-gap: 5px;
+  display: flex;
+  flex-direction: column;
 }
 .user_info {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.users_users{
-    margin-top: 30px;
-    margin-left: 30px; 
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.user_nickname{
-    font-size: 26px;
-    font-weight: 600;
-}
-.user_name {
-    color: rgba(var(--foreground-rgba));
-}
-
-.user_email {
-    color: rgba(var(--foreground-rgba));
-}
-.user_delite{
-    margin-right: 20px;
-
-}
-.user_delite button{
-    margin-top: 5px;
-    background-color: inherit;
-    border: 0;
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-
-.tittle_p {
-    margin-top: 5px;
-    font-weight: 700;
-    font-size: 24px;
+.search {
+  display: flex;
+  align-items: baseline;
 }
 
-.users_tittle{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+.header input {
+  padding: 10px 15px;
+  min-width: 200px;
+  width: 40vw;
+  max-width: 600px;
+  background-color: rgba(var(--callout-border-rgba));
+  border-radius: 31px 0 0 31px;
+  outline: none;
+  border: 0;
+  color: rgba(var(--foreground-rgb));
+  font-size: var(--font-size-content);
 }
 
-.users_search{
-    display: flex;
-    width: 342px;
-    height: 50px;
-    background-color: rgba(var(--callout-border-rgba));
-    border-radius: 31px;
+.img_search {
+  padding-left: 10px;
 }
 
-.search_input{
-    margin-top: 17px;
-    margin-left: 20px;
-    
-}
-.search_input input{
-    outline: none;
-    border: 0;
-    color: rgba(var(--foreground-rgb));
-    padding-left: 5px;
-    background-color: inherit;
-    font-size: 18px;
-}
-.img_search{
-    margin-top: 13px;
-    position: absolute;
-    margin-left: 288px;
+
+.placeholder {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  gap: 15px;
 }
 
-.img_search button {
-    background-color: inherit;
-    border: 0px;
+/* Mobile */
+@media (max-width: 700px) {
+  .placeholder {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 120px;
+    max-width: 320px;
+    text-align: center;
+  }
 }
 
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1430px) {
+  .placeholder {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 
+.placeholder [class~=card]:nth-child(2) {
+    transform: translateX(40px);
+} 
+*/

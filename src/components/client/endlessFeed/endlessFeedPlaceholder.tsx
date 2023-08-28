@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import styles from './styles.module.css'
@@ -16,7 +15,7 @@ export const EndlessFeedPlaceholder = ({
   className,
   loadMoreParams = [],
 }: {
-  ItemCard: (props: { data: any }) => JSX.Element
+  ItemCard: (props: { data: any; card_href: string }) => JSX.Element
   origin: string
   loadMore: (page: number, ...loadMoreParams: any[]) => Promise<State>
   className?: string
@@ -45,9 +44,7 @@ export const EndlessFeedPlaceholder = ({
     <>
       <div className={className}>
         {state.data.map((item) => (
-          <Link href={`${origin}/${item.id}`} key={item.id}>
-            <ItemCard data={item} />
-          </Link>
+          <ItemCard data={item} card_href={`${origin}/${item.id}`} key={item.id} />
         ))}
       </div>
       {state.nextPage && (

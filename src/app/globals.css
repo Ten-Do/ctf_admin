@@ -5,8 +5,9 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
     'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   --font-size-content: 1.3rem;
+  --font-size-secondary: 0.9rem;
   --foreground-rgb: 0, 0, 0;
-  --foreground-rgba: 0, 0, 0, 0.75;
+  --foreground-rgba: 0, 0, 0, 0.6;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
@@ -39,7 +40,7 @@
 
   :root {
     --foreground-rgb: 241, 241, 241;
-    --foreground-rgba: 241, 241, 241, 0.8;
+    --foreground-rgba: 241, 241, 241, 0.6;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
