@@ -27,7 +27,7 @@ export const NewUserCard = ({ data: { name, surname, email, student_card }, card
         </div>
         <div className={styles.buttons}>
           <div
-            className={styles.reject_btn + ' svg_container'}
+            className={styles.reject_btn + ' svg_container card'}
             onClick={(e) => {
               e.preventDefault()
               UserService.rejectRegistration('email', 'description')
@@ -36,7 +36,7 @@ export const NewUserCard = ({ data: { name, surname, email, student_card }, card
             <Image src={'/assets/ui/reject.svg'} alt='Отклонить' width={120} height={40} />
           </div>
           <div
-            className={styles.accept_btn + ' svg_container'}
+            className={styles.accept_btn + ' svg_container card'}
             onClick={(e) => {
               e.preventDefault()
               UserService.verifyRegistration('email', 'description')

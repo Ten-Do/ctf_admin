@@ -66,15 +66,14 @@
 */
 
 .page_logo {
-  filter: blur(25px);
+  filter: blur(25px) brightness(0.8);
   z-index: -1;
   opacity: 0.6;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: sticky;
   bottom: 0;
-  right: 0;
 }
 
 .page_logo::before {

@@ -30,6 +30,11 @@
   text-overflow: ellipsis;
 }
 
-.del_btn {
-  margin-left: 20px;
+.del_btn > img {
+  transition: all 0.5s;
+}
+
+.del_btn:hover > img {
+  filter: invert(25%) sepia(17%) saturate(4631%) hue-rotate(298deg) brightness(98%) contrast(90%);
+  transition: all 0.1s;
 }

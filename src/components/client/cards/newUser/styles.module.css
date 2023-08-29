@@ -44,9 +44,13 @@
 .buttons > div {
   border-radius: var(--border-radius-s);
   padding: 4px 0;
-  background-color: rgb(var(--card-rgb));
+  background-color: inherit;
 }
 
-.accept_btn {
-  background-color: rgb(49, 161, 49);
+.accept_btn:hover {
+  background-color: rgba(var(--access-rgba));
+}
+
+.reject_btn:hover {
+  background-color: rgba(var(--danger-rgba));
 }
