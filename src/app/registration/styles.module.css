@@ -122,7 +122,7 @@
   
   .selectBox {
     position: relative;
-    
+    margin-bottom: 30px;
   }
   
   .selectBox select {
@@ -132,7 +132,11 @@
     background-color: rgba(var(--callout-rgba));
     height: 55px;
     margin: 15px 0;
+    border: 2px solid rgba(var(--callout-border-rgba));
     border-radius: var(--border-radius);
+    width: 572px;
+    height: 66px;
+    color: rgba(var(--foreground-rgba));
   }
   
   .overSelect {

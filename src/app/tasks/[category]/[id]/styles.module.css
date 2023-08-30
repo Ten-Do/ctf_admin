@@ -21,15 +21,15 @@
   height: min-content;
 }
 
-.additional > p {
+.additional>p {
   margin-bottom: 4px;
 }
 
-.additional > p:last-child {
+.additional>p:last-child {
   margin-bottom: 0;
 }
 
-.additional > p > span {
+.additional>p>span {
   margin-left: min(90px, calc(14px + 4vw));
   float: right;
   font-weight: bold;
@@ -58,6 +58,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  grid-gap: 35px;
 }
 
 .file_btn {
@@ -68,28 +69,31 @@
   border-radius: 7px;
   font-weight: 100;
   color: white;
-  margin-right: 40px;
+
 }
 
 .flag_field {
   width: 442px;
   height: 63px;
   border: 2px solid #5c5c5c;
-  border-radius: 7px;
+  border-radius: var(--border-radius-s);
   font-size: 30px;
   text-align: center;
+  border: 2px solid rgba(var(--callout-border-rgba));
+  text-indent: 10px;
+
+  background-color: rgba(var(--callout-rgba));
 }
 
 
 .submit_btn {
   width: 182px;
   height: 72px;
-  border: 2px solid #62cb31;
-  border-radius: 22px;
+  border: 3px solid rgb(var(--access-rgb));
+  border-radius: var(--border-radius);
   font-size: 30px;
-  color: #62cb31;
-  background-color: white;
-  margin-left: 40px;
+  color: rgb(var(--access-rgb));
+  background-color: rgba(var(--callout-rgba));
 }
 
 .btl__content {
@@ -112,7 +116,7 @@
 .btl__card_content {
   display: flex;
   flex-direction: column;
-  margin-left: 33px;
+
   margin-top: 27px;
 }
 
@@ -131,6 +135,7 @@
 .btl__actions {
   display: flex;
   justify-content: space-between;
+  gap: 30px;
   align-items: center;
 }
 
@@ -139,6 +144,49 @@
   font-weight: normal;
 }
 
-.btl__getcard {
-  margin-right: 33px;
+
+
+.answer_button {
+  width: 182px;
+  height: 72px;
+  font-family: var(--font-mono);
+  font-size: 30px;
+  color: rgb(var(--danger-rgb));
+  border: 3px solid rgb(var(--danger-rgb));
+  background-color: rgba(var(--callout-rgba));
+  border-radius: var(--border-radius);
+}
+
+.answer_answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.answer_container {
+  min-width: 300px;
+  min-height: 100px;
+  max-width: 750px;
+  font-size: 18px;
+  max-height: 300px;
+  background-color: rgba(var(--callout-rgba));
+  border: 3px solid rgba(var(--callout-border-rgba));
+  border-radius: var(--border-radius-s);
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.answer_answer {
+  width: 30%;
+  height: 35px;
+  font-size: 24px;
+  padding-left: 3px;
+  background-color: rgba(var(--callout-rgba));
+  border: 3px solid rgba(var(--callout-border-rgba));
+  border-radius: var(--border-radius-s);
+  text-align: center;
 }

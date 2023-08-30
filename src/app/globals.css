@@ -8,8 +8,8 @@
   --font-size-content: 1.3rem;
   --font-size-secondary: 0.9rem;
   --accent-rgba: 58, 41, 156, 0.4;
-  --access-rgba: 50, 150, 50, 0.2;
-  --danger-rgba: 158, 50, 95, 0.2;
+  --access-rgb: 50, 150, 50;
+  --danger-rgb: 158, 50, 95;
   --foreground-rgb: 0, 0, 0;
   --foreground-rgba: 0, 0, 0, 0.6;
   --background-start-rgb: 214, 219, 220;

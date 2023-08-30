@@ -7,8 +7,18 @@ import checkSvg from './../../../public/assets/ui/checkbox.svg';
 
 const Registration = () => {
 
+	let fileChange = () => {
+		console.log(document.getElementById('file-input').files[0])
+		if (document.getElementById('file-input').files[0]){
+			fileNameRef.current.innerHTML = document.getElementById('file-input').files[0].name;
+		} else {
+			fileNameRef.current.innerHTML = "Студенческий билет";
+		}
+	}
+
 	const selectRef = useRef(null);
 	let fileRef = useRef(null);
+	let fileNameRef = useRef(null);
 
 	let expanded = false;
 
@@ -85,9 +95,9 @@ const Registration = () => {
 						</div>
 					</div>
 					<div className={styles.file_input_container}>
-						<input  id='file-input' className={styles.file_input} type="file" name="img" accept="image/*" />
+						<input ref={fileRef} onChange={fileChange} id='file-input' className={styles.file_input} type="file" name="img" accept="image/*" />
 						<label className={styles.form_label_file + ' ' + styles.reg_file_input} for="file-input">
-							<span ref={fileRef}>Студенческий билет</span>
+							<span ref={fileNameRef}>Студенческий билет</span>
 							<div className={styles.stud_logo_container}>
 								<div className='svg_container'>
 								<Image className={styles.stud_bilet_logo} src={'/assets/ui/add.svg'} alt={'plusLogo'} width={37} height={37} />
