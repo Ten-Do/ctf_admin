@@ -1,0 +1,214 @@
+.fixed_container {
+    position: relative;
+    color: rgba(var(--foreground-rgba));
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-mono);
+  }
+  
+  
+    .fixed_container h1 {
+      font-size: 40px;
+      text-align: center;
+  
+    }
+
+    .vvotar {
+        display: none;
+    }
+  
+  
+  .form {
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 572px;
+  }
+    .form h1 {
+      margin-bottom: 50px;
+      margin-top:50px ;
+      color: rgba(var(--foreground-rgb));
+    }
+    .form button {
+      width: 572px;
+      height: 66px;
+      border: 2px solid rgba(var(--callout-border-rgba));
+      border-radius: var(--border-radius);
+      padding: 0px;
+      font-size: 24px;
+      text-indent: 10px;
+      margin-bottom: 40px;
+    }
+  
+    .normal_input {
+      width: 572px;
+      height: 66px;
+      border: 2px solid rgba(var(--callout-border-rgba));
+      border-radius: 22px;
+      padding: 0px;
+      font-size: 24px;
+      text-indent: 10px;
+      margin-bottom: 40px;
+      background-color: rgba(var(--callout-rgba));
+    }
+  
+    .form option {
+      font-size: 24px;  
+  
+    }
+  
+    .form_label {
+      float: left;
+      margin-left: 13px;
+      color: rgba(var(--foreground-rgb));
+    }
+  
+    .file_input_container {
+      width: 574px;
+      height: 128px;
+      border: 2px dashed rgba(var(--callout-border-rgba));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .file_input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+  
+  
+    .file_input + label {
+      flex-direction: column;
+      display: flex;
+      cursor: pointer;
+    }
+  
+    .stud_logo_container {
+      margin-top: 13px;
+    }
+  
+    .stud_bilet_logo {
+      width: 25px;
+      height: 25px;
+    }
+  
+  
+    .form button {
+      margin-top: 53px;
+  
+    }
+  
+  .button {
+    background-color: rgba(var(--callout-rgba));
+    color: rgba(var(--foreground-rgb));
+  }
+
+  .button:hover {
+    background-color: rgba(var(--access-rgba));
+  }
+  
+  .multiselect {
+    width: 572px;
+    text-align: left;
+  }
+  
+  .selectBox {
+    position: relative;
+    
+  }
+  
+  .selectBox select {
+    width: 100%;
+    font-size: 22px;
+    font-weight: normal;
+    background-color: rgba(var(--callout-rgba));
+    height: 55px;
+    margin: 15px 0;
+    border-radius: var(--border-radius);
+  }
+  
+  .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .checkboxes {
+    display: none;
+    margin-bottom: 30px;
+  }
+  
+  .checkboxes label {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid rgba(var(--callout-border-rgba));
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-left: 20px;
+  }
+  
+  .checkboxes label:hover {
+    background-color: rgba(var(--callout-rgba));
+  
+  }
+  
+  .checkboxes input {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .checkboxes input {
+    display: none;
+  
+  
+  }
+    .fake {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 2px solid rgba(var(--callout-border-rgba));
+    border-radius: 4px;
+    vertical-align: sub;
+    margin-right: 5px;
+    } 
+  
+    .fake::before {
+    content: '';
+  
+    /* Рисуем галочку */
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+  
+    background-image: url('./../../../public/assets/ui/checkbox.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    position: absolute;
+  
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    margin-top: 1px;
+  
+    transition: 0.2s ease-in;
+  
+  }
+  
+  .checkboxes input:checked + .fake::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
