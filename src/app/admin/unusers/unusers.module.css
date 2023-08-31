@@ -26,7 +26,7 @@
   width: 342px;
   height: 50px;
   background: rgba(var(--callout-border-rgba));
-  border-radius: 31px;
+  border-radius: var(--border-radius-l);
 }
 .search_input {
   margin-top: 17px;
