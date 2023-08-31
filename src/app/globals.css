@@ -4,15 +4,15 @@
   --border-radius-s: 8px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
     'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  --font-size-content: 1.3rem;
-  --font-size-secondary: 0.9rem;
-  --accent-rgba: 58, 41, 156, 0.4;
-  --access-rgba: 50, 150, 50, 0.2;
-  --danger-rgba: 158, 50, 95, 0.2;
-  --foreground-rgb: 0, 0, 0;
-  --foreground-rgba: 0, 0, 0, 0.6;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --font-size-content: 1.3rem; /* размер шрифта в основной части страницы */
+  --font-size-secondary: 0.9rem; /* размер шрифта для второстепенного текста (например доп информация или тип того) */
+  --accent-rgba: 58, 41, 156, 0.4; /* основной цвет чтоб выделять активные элементы (например подсветка активного инпута могла бы быть такой */
+  --access-rgba: 50, 150, 50, 0.2; /* зеленый */
+  --danger-rgba: 158, 50, 95, 0.2; /* красный */
+  --foreground-rgb: 0, 0, 0; /* цвет обычного текста */
+  --foreground-rgba: 0, 0, 0, 0.6; /* цвет второстепенного текста */
+  --background-start-rgb: 224, 229, 230;
+  --background-end-rgb: 245, 245, 245;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -44,11 +44,15 @@
   :root {
     --foreground-rgb: 241, 241, 241;
     --foreground-rgba: 241, 241, 241, 0.6;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(to bottom right, rgba(1, 65, 255, 0), rgba(1, 65, 255, 0), rgba(1, 65, 255, 0.3));
+    --background-end-rgb: 10, 10, 10;
+    --background-start-rgb: 10, 10, 10;
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.11), rgba(1, 65, 255, 0));
+    --secondary-glow: linear-gradient(
+      to bottom right,
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0.06)
+    );
 
     --border-rgb: 66, 66, 66;
 

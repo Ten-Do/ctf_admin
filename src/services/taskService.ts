@@ -38,11 +38,23 @@ export class TaskService {
   "task_file": "(название файла)"}
    */
 
+  static async getFullOne(id: number): Promise<Task> {
+    return await $api.get(API_ENDPOINTS.getFullTask(id)).then((response) => {
+      // temp variant. when server will changed -> remove if (...) {...}
+      if (response.data.file) {
+        response.data.task_file = response.data.file
+        delete response.data.file
+      }
+      return response.data
+    })
+  }
+
   static async add(newTask: FormData): Promise<{ status: number; data: { message: string } }> {
     return await $api.sendForm(API_ENDPOINTS.postTask, newTask)
   }
 
   static async edit(newTask: FormData): Promise<{ status: number; data: { message: string } }> {
+    console.log(newTask)
     return await $api.sendForm(API_ENDPOINTS.putTask, newTask, 'PUT' )
   }
 

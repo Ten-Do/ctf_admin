@@ -9,6 +9,7 @@ export const API_ENDPOINTS = {
   postTask: '/tasks',
   putTask: '/tasks',
   getTask: (id: number) => '/tasks/' + id,
+  getFullTask: (id: number) => '/task/' + id,
   getTasks: (category: Category, page: number) => '/tasks?category=' + category + '&page=' + page,
   checkTaskFlag: (id: number) => '/tasks/' + id, // post
   deleteTask: (id: number) => '/tasks/' + id,
