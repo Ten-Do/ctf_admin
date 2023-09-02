@@ -1,4 +1,4 @@
-import { Category } from "@/types/category";
+import { Category } from '@/types/category'
 
 export const API_ENDPOINTS = {
   /* AUTH */
@@ -16,6 +16,7 @@ export const API_ENDPOINTS = {
   downloadTask: (fileName: string) => 'tasks/' + fileName, // (download file with task)
   getTaskAnswer: (id: number) => '/answer-task/' + id,
   /* USERS */
+  getFullUser: (id: number) => '/user/' + id,
   getUsers: (page: number) => '/users?page=' + page,
   getNotActivatedUsers: (page: number) => '/not-users?page=' + page,
   getNewUsers: (page: number) => '/new-users?page=' + page,

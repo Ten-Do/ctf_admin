@@ -1,4 +1,4 @@
-import { Category } from "./category"
+import { Category } from './category'
 
 export interface User {
   id: number
@@ -8,5 +8,8 @@ export interface User {
   surname?: string
   categories?: Category[]
   category?: Category
+  points: {
+    [K in Category]?: number
+  }
   studentCard?: string | File
 }

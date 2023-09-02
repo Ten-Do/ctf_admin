@@ -30,6 +30,11 @@
   text-overflow: ellipsis;
 }
 
+.del_btn {
+  display: block;
+  height: 100%;
+}
+
 .del_btn > img {
   transition: all 0.5s;
 }

@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 
 export type State = {
   data: { id: number }[]
-  nextPage: number
+  nextPage: number | null
 }
 
 export const EndlessFeedPlaceholder = ({

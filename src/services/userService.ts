@@ -2,6 +2,7 @@ import { User } from '@/types/user'
 import $api from '@/http/api'
 import { API_ENDPOINTS } from '../http/endPoint'
 import { Category } from '@/types/category'
+import { category } from '@/utils/arrays/category'
 
 export class UserService {
   static async register(userInfo: User) {
@@ -15,8 +16,29 @@ export class UserService {
     return $api.sendForm(API_ENDPOINTS.register, userFormData)
   }
 
-  static async getAll(page: number): Promise<User[]> {
-    return await $api.get(API_ENDPOINTS.getUsers(page)).then((res) => res.data)
+  static async getOneFull(id: number) {
+    return $api
+      .get(API_ENDPOINTS.getFullUser(id))
+      .then((res) => res.data)
+      .then((data) => {
+        const user: User = { id: data.id!, points: {}, categories: [] }
+        for (const key in data) {
+          if (key.endsWith('_score')) {
+            user.points[key.replace('_score', '') as Category] = data[key]
+          } else if (category.includes(key)) {
+            if (data[key]) user.categories.push(key)
+          } else {
+            user[key] = data[key]
+          }
+        }
+        return user
+      })
+  }
+
+  static async getAll(page: number): Promise<{ data: User[]; nextPage: number | null }> {
+    return await $api.get(API_ENDPOINTS.getUsers(page)).then((res) => {
+      return { data: res.data.users, nextPage: res.data.nextPage }
+    })
   }
 
   static async getNew(page: number): Promise<User[]> {
