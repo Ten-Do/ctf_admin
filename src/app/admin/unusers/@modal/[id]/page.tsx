@@ -1,16 +1,12 @@
 import { Modal } from '@/components/client/modal/modal'
-import styles from './styles.module.css'
+import { UserService } from '@/services/userService'
+import { User } from '@/types/user'
 
-export default function NewUsersModal({
-  params: { id },
-  searchParams: { i },
-}: {
-  params: { id: number }
-  searchParams: { i: string }
-}) {
+export default async function UserAbout({ params: { id } }: { params: { id: number } }) {
+  const user: User = await UserService.getOneFull(id)
   return (
     <Modal>
-      <img className={styles.img} src={i} alt="Документ не проявил себя..." />
+      <pre className='code'>{JSON.stringify(user, null, '\t')}</pre>
     </Modal>
   )
 }

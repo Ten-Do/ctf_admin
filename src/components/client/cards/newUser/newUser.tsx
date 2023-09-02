@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 interface NewUserCardProps {
   data: {
+    id: number
     name: string
     surname: string
     email: string
@@ -14,7 +15,7 @@ interface NewUserCardProps {
   card_href: string
 }
 
-export const NewUserCard = ({ data: { name, surname, email, student_card }, card_href }: NewUserCardProps) => {
+export const NewUserCard = ({ data: { id, name, surname, email, student_card }, card_href }: NewUserCardProps) => {
   return (
     <Link href={card_href}>
       <div className={styles.container + ' card'}>
@@ -27,22 +28,22 @@ export const NewUserCard = ({ data: { name, surname, email, student_card }, card
         </div>
         <div className={styles.buttons}>
           <div
-            className={styles.reject_btn + ' svg_container card'}
             onClick={(e) => {
               e.preventDefault()
-              UserService.rejectRegistration('email', 'description')
             }}
           >
-            <Image src={'/assets/ui/reject.svg'} alt='Отклонить' width={120} height={40} />
+            <Link href={card_href + '/reject'} className={styles.reject_btn + ' svg_container card'}>
+              <Image src={'/assets/ui/reject.svg'} alt='Отклонить' width={120} height={40} />
+            </Link>
           </div>
           <div
-            className={styles.accept_btn + ' svg_container card'}
             onClick={(e) => {
               e.preventDefault()
-              UserService.verifyRegistration('email', 'description')
             }}
           >
-            <Image src={'/assets/ui/accept.svg'} alt='Добавить' width={120} height={40} />
+            <Link href={card_href + '/accept'} className={styles.accept_btn + ' svg_container card'}>
+              <Image src={'/assets/ui/accept.svg'} alt='Добавить' width={120} height={40} />
+            </Link>
           </div>
         </div>
       </div>

@@ -41,9 +41,15 @@
   justify-content: space-between;
 }
 
-.buttons > div {
+.buttons  div {
   border-radius: var(--border-radius-s);
   padding: 4px 0;
+  background-color: inherit;
+}
+
+.buttons a {
+  display: block;
+  height: 100%;
   background-color: inherit;
 }
 
@@ -54,3 +60,5 @@
 .reject_btn:hover {
   background-color: rgba(var(--danger-rgba));
 }
+
+
