@@ -1,40 +1,41 @@
 'use client'
-import Image from 'next/image';
-import styles from './requestCard.module.css';
-import { UserService } from '@/services/userService';
+import Image from 'next/image'
+import styles from './requestCard.module.css'
+import { User } from '@/types/user'
+import Link from 'next/link'
+import { $acceptCategoryRequest } from '@/actions/acceptCategoryRequest'
+import { $rejectCategoryRequest } from '@/actions/rejectCategoryRequest'
 
-
-interface requestProps {
-    name: string,
-    category: string,
-    email: string
+const RequestCard = ({ data, card_href }: { data: User; card_href: string }) => {
+  return (
+    <Link href={card_href} className={styles.user + ' card'}>
+      <div className={styles.info}>
+        <p>{data.name} </p>
+        <p>{data.surname}</p>
+        <p className='code'> {data.category}</p>
+      </div>
+      <div className={styles.buttons}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            $acceptCategoryRequest(data.id, data.category!)
+          }}
+          className={styles.plus_button + ' svg_container'}
+        >
+          <Image src={'/assets/ui/add.svg'} alt='' width={45} height={45} className='L_Plus' />
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            $rejectCategoryRequest(data.id, data.category!)
+          }}
+          className={styles.minus_button + ' svg_container'}
+        >
+          <Image src='/assets/ui/reject.svg' alt='' width={45} height={45} />
+        </button>
+      </div>
+    </Link>
+  )
 }
 
-const RequestCard = () => {
-    return (
-        <div className={styles.user + ' card'} >
-            <div className={styles.user_items}>
-                <div className={styles.name}> {'Имя'} </div>
-                <div className={styles.category}> {'Категория'} </div>
-                <div className={styles.request_button}>
-                    <div className={styles.button_plus} onClick={() => UserService.update('1', '1', [], [])}>
-                        <button>
-                            <div className={styles.plus_button + ' svg_container'}>
-                                <Image src={'/assets/ui/add.svg'} alt="" width={40} height={40} className="L_Plus" />
-                            </div>
-                        </button>
-                    </div>
-                    <div className={styles.button_minus} onClick={() => UserService.delete(1)}>
-                        <button>
-                            <div className={styles.minus_button + ' svg_container'}>
-                                <Image src={'/assets/ui/reject.svg'} alt="" width={40} height={40} className="L_Minus" />
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default RequestCard;
+export default RequestCard

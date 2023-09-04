@@ -45,8 +45,10 @@ export class UserService {
     return await $api.get(API_ENDPOINTS.getNotActivatedUsers(page)).then((res) => res.data)
   }
 
-  static async getCategoryRequests(page: number): Promise<User[]> {
-    return await $api.get(API_ENDPOINTS.getNewUsers(page)).then((res) => res.data)
+  static async getCategoryRequests(page: number): Promise<{ data: User[]; nextPage: number | null }> {
+    return await $api
+      .get(API_ENDPOINTS.getNewUsers(page))
+      .then((res) => ({ data: res.data.users, nextPage: res.data.nextPage }))
   }
 
   static async verifyRegistration(email: string, description?: string) {

@@ -44,7 +44,7 @@ export const EndlessFeedPlaceholder = ({
     <>
       <div className={className}>
         {state.data.map((item) => (
-          <ItemCard data={item} card_href={`${origin}/${item.id}`} key={item.id} />
+          <ItemCard data={item} card_href={`${origin}/${item.id}`} key={item.id + Math.random()} />
         ))}
       </div>
       {state.nextPage && (

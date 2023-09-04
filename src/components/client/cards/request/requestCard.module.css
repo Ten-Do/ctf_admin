@@ -1,74 +1,43 @@
-.user{
-    display: flex;
-    font-size: 20px;
-    height: 73px;
-    width: 415px;
+.user {
+  display: flex;
+  font-size: var(--font-size-content);
+  width: 100%;
+  align-items: center;
 }
 
-.user_items{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+.info {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.category{
-    font-weight: 700;
-    font-family: var(--font-mono);
+.info p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.buttons {
+  display: flex;
+  gap: 5px;
+  margin-left: 24px;
 }
 
-
-.request_button{
-    display: flex;
-}
-.request_button button{
-    border-radius: 50%;
+.buttons button {
+  border: none;
+  background-color: inherit;
+  display: block;
 }
 
-.button_plus{
-    margin-top: 5px;
-    margin-right: 6px;
-}
-
-.plus_button > img {
-    transition: all 0.5s;
+.buttons img {
+  transition: all 5s;
 }
 
 .plus_button:hover > img {
-    filter: invert(52%) sepia(26%) saturate(1164%) hue-rotate(72deg) brightness(86%) contrast(94%);
-    transition: all 0.1s;
-}
-
-
-.minus_button > img {
-    transition: all 0.5s;
+  filter: invert(52%) sepia(26%) saturate(1164%) hue-rotate(72deg) brightness(86%) contrast(94%);
+  transition: all 1s;
 }
 
 .minus_button:hover > img {
-    filter: invert(25%) sepia(17%) saturate(4631%) hue-rotate(298deg) brightness(98%) contrast(90%);
-    transition: all 0.1s;
-}
-
-.button_plus button {
-    border: 0;
-    background-color: inherit;
-}
-.button_minus{
-    margin-top: 5px;
-    margin-bottom: 3px;
-}
-
-.button_minus button {
-    border: 0;
-    background-color: inherit;
-}
-
-.D_Plus{
-    display: none;
-}
-.D_Minus{
-    display: none;
-}
-.D_Trash{
-    display: none;
+  filter: invert(25%) sepia(17%) saturate(4631%) hue-rotate(298deg) brightness(98%) contrast(90%);
+  transition: all 1s;
 }
