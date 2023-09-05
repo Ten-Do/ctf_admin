@@ -8,18 +8,21 @@ export default function AcceptRegistrationModal({ params: { id } }: { params: { 
   const inputRef = useRef<HTMLInputElement>(null)
   return (
     <Modal>
-      <h2>Принять заявку</h2>
-      <p>Вы можете ввести сообщение (комментарий) для пользователя в поле ниже</p>
-      <label htmlFor='comment'>Комментарий</label>
-      <input ref={inputRef} type='text' name='comment' id='comment' placeholder='Категории, выбранные вами при регистрации, будут добавлены вам в ближайшее время' />
-      <p>После клика по кнопке "Добавить" аккаунт станет активным, а пользователь получит для него пароль.</p>
-      <button
-        onClick={() => {
-          $acceptUserRegistration(id, inputRef.current?.value)
-        }}
-      >
-        Добавить
-      </button>
+      <div className={styles.accept_container}>
+        <h2>Принять заявку</h2>
+        <p>Вы можете ввести сообщение (комментарий) для пользователя в поле ниже</p>
+        <label htmlFor='comment'>Комментарий</label>  
+        <input ref={inputRef} type='text' name='comment' id='comment' placeholder='Категории, выбранные вами при регистрации, будут добавлены вам в ближайшее время' />
+        <p>После клика по кнопке "Добавить" аккаунт станет активным, а пользователь получит для него пароль.</p>
+        <button
+          onClick={() => {
+            $acceptUserRegistration(id, inputRef.current?.value)
+          }}
+        >
+          Добавить
+        </button>
+      </div>
+
     </Modal>
   )
 }

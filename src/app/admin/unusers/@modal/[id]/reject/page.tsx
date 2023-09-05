@@ -8,6 +8,7 @@ export default function RejectRegistrationModal({ params: { id } }: { params: { 
   const inputRef = useRef<HTMLInputElement>(null)
   return (
     <Modal>
+      <div className={styles.reject_container}>
       <h2>Отклонить заявку?</h2>
       <p>В поле ниже укажите причину, по которой аккаунт не может быть добавлен на платформу.</p>
       <label htmlFor='comment'>Причина</label>
@@ -24,6 +25,8 @@ export default function RejectRegistrationModal({ params: { id } }: { params: { 
       >
         Отклонить
       </button>
+      </div>
+      
     </Modal>
   )
 }
