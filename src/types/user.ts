@@ -8,8 +8,9 @@ export interface User {
   surname?: string
   categories?: Category[]
   category?: Category
-  points: {
+  points?: {
     [K in Category]?: number
   }
+  phonenum?: string
   studentCard?: string | File
 }

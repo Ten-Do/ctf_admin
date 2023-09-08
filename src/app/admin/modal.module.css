@@ -1,0 +1,10 @@
+.button_container {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+  align-content: center;
+}
+
+.comment {
+  width: 100%;
+}

@@ -7,6 +7,7 @@
     'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   --font-size-content: 1.3rem; /* размер шрифта в основной части страницы */
   --font-size-secondary: 0.9rem; /* размер шрифта для второстепенного текста (например доп информация или тип того) */
+  --accent-rgb: 58, 41, 156;
   --accent-rgba: 58, 41, 156, 0.4; /* основной цвет чтоб выделять активные элементы (например подсветка активного инпута могла бы быть такой */
   --access-rgba: 50, 150, 50, 0.2; /* зеленый */
   --danger-rgba: 158, 50, 95, 0.2; /* красный */
@@ -63,6 +64,8 @@
     --callout-border-rgba: 108, 108, 108, 0.5;
     --card-rgb: 50, 50, 50;
     --card-border-rgb: 200, 200, 200;
+    --accent-rgb: 85, 67, 187;
+    --accent-rgba: 85, 67, 187, 0.6;
   }
 }
 
@@ -187,4 +190,93 @@ hr {
   html {
     color-scheme: dark;
   }
+}
+
+/*  TEXT  */
+
+p {
+  font-size: var(--font-size-content);
+  text-align: justify;
+}
+
+p.subtext {
+  color: rgba(var(--foreground-rgba));
+  font-size: var(--font-size-secondary);
+}
+
+.trim-text,
+.trim-text * {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*  INPUT FIELD  */
+.input-container {
+  position: relative;
+  font-family: inherit;
+}
+
+.input-container label {
+  color: rgb(var(--foreground-rgba));
+  position: absolute;
+  margin-left: 4px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 2px;
+  transition: 0.2s;
+}
+
+.input-container input, .input-container textarea {
+  border: 1px solid rgba(var(--callout-border-rgba));
+  border-radius: var(--border-radius-s);
+  background-color: rgba(var(--callout-rgba));
+  padding: 5px;
+}
+
+.input-container input:focus, .input-container textarea:focus {
+  outline: none;
+}
+
+.input-container input:focus + label, .input-container textarea:focus + label,
+.input-container input:not(:placeholder-shown) + label, .input-container textarea:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-95%);
+  font-size: 0.7rem;
+}
+
+.input-container input:focus + label, .input-container textarea:focus + label {
+  color: rgb(var(--accent-rgb));
+}
+.input-container input:focus, .input-container textarea:focus {
+  border-color: rgb(var(--accent-rgb));
+}
+
+input.error, textarea.error {
+  border: 1px solid rgb(var(--danger-rgb));
+}
+
+/*  BUTTONS  */
+
+.btn {
+  padding: 10px;
+  font-size: var(--font-size-content);
+  border-radius: var(--border-radius-s);
+  border: 1px solid rgba(var(--callout-border-rgba));
+  background-color: rgba(var(--callout-rgba));
+  transition: all 0.3s ease;
+}
+
+.btn.access:hover,
+.btn.access:focus {
+  border: 1px solid rgb(var(--access-rgb));
+  background-color: rgba(var(--access-rgba));
+}
+
+.btn.danger:hover,
+.btn.danger:focus {
+  border: 1px solid rgb(var(--danger-rgb));
+  background-color: rgba(var(--danger-rgba));
 }

@@ -1,27 +1,31 @@
 .overlay {
-  padding: 20px;
+  padding: 20vh 0 60px;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: fixed;
   z-index: 10;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  margin: 0 auto;
   background-color: rgba(var(--background-end-rgb), 0.7);
   animation-name: appear;
   animation-duration: 300ms;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.overlay::-webkit-scrollbar {
+  width: 0;
 }
 
 .wrapper {
+  width: min-content;
+  font-family: var(--font-mono);
+  height: fit-content;
   border-radius: var(--border-radius);
   background-color: rgba(var(--callout-rgba));
   border: 2px solid rgba(var(--callout-border-rgba));
-  position: absolute;
-  width: 100%;
+  min-width: 100%;
   padding: 1.5rem;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.5s;
@@ -29,14 +33,26 @@
   animation-duration: 0.5s;
 
   @media (min-width: 640px) {
-    width: 83.333333%;
+    min-width: 83.333333%;
   }
   @media (min-width: 768px) {
-    width: 66.666667%;
+    min-width: 66.666667%;
   }
   @media (min-width: 1024px) {
-    width: 50%;
+    min-width: 50%;
   }
+}
+
+.wrapper p:not(:last-child) {
+  margin-bottom: 0.6rem;
+}
+
+.wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {
+  margin-bottom: 1.2rem;
+}
+
+.wrapper * {
+  font-family: var(--font-mono);
 }
 
 @keyframes appear {

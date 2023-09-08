@@ -14,7 +14,7 @@ export const Modal = ({ children }: { children: React.ReactNode }) => {
 
   const onClick: MouseEventHandler = useCallback(
     (e) => {
-      if (e.target === overlay.current || e.target === wrapper.current) {
+      if (e.target === overlay.current) {
         if (onDismiss) onDismiss()
       }
     },
@@ -35,10 +35,7 @@ export const Modal = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div ref={overlay} className={styles.overlay} onClick={onClick}>
-      <div
-        ref={wrapper}
-        className={styles.wrapper}
-      >
+      <div ref={wrapper} className={styles.wrapper}>
         {children}
       </div>
     </div>
