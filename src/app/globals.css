@@ -220,6 +220,7 @@ p.subtext {
 
 .input-container label {
   color: rgb(var(--foreground-rgba));
+  font-family: var(--font-mono);
   position: absolute;
   margin-left: 4px;
   left: 0;
@@ -229,38 +230,47 @@ p.subtext {
   transition: 0.2s;
 }
 
-.input-container input, .input-container textarea {
+.input-container input,
+.input-container textarea {
+  font-family: var(--font-mono);
   border: 1px solid rgba(var(--callout-border-rgba));
   border-radius: var(--border-radius-s);
   background-color: rgba(var(--callout-rgba));
   padding: 5px;
 }
 
-.input-container input:focus, .input-container textarea:focus {
+.input-container input:focus,
+.input-container textarea:focus {
   outline: none;
 }
 
-.input-container input:focus + label, .input-container textarea:focus + label,
-.input-container input:not(:placeholder-shown) + label, .input-container textarea:not(:placeholder-shown) + label {
+.input-container input:focus + label,
+.input-container textarea:focus + label,
+.input-container input:not(:placeholder-shown) + label,
+.input-container textarea:not(:placeholder-shown) + label {
   top: 0;
-  transform: translateY(-95%);
-  font-size: 0.7rem;
+  transform: translateY(-100%);
+  font-size: var(--font-size-secondary);
 }
 
-.input-container input:focus + label, .input-container textarea:focus + label {
+.input-container input:focus + label,
+.input-container textarea:focus + label {
   color: rgb(var(--accent-rgb));
 }
-.input-container input:focus, .input-container textarea:focus {
+.input-container input:focus,
+.input-container textarea:focus {
   border-color: rgb(var(--accent-rgb));
 }
 
-input.error, textarea.error {
+input.error,
+textarea.error {
   border: 1px solid rgb(var(--danger-rgb));
 }
 
 /*  BUTTONS  */
 
 .btn {
+  font-family: var(--font-mono);
   padding: 10px;
   font-size: var(--font-size-content);
   border-radius: var(--border-radius-s);
@@ -269,14 +279,16 @@ input.error, textarea.error {
   transition: all 0.3s ease;
 }
 
-.btn.access:hover,
-.btn.access:focus {
+.btn.access:hover {
   border: 1px solid rgb(var(--access-rgb));
   background-color: rgba(var(--access-rgba));
 }
 
-.btn.danger:hover,
-.btn.danger:focus {
+.btn.danger:hover {
   border: 1px solid rgb(var(--danger-rgb));
   background-color: rgba(var(--danger-rgba));
+}
+
+.btn.accent:hover {
+  background-color: rgba(var(--accent-rgba));
 }

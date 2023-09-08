@@ -7,7 +7,6 @@ export default async function TaskInfo({ params: { id } }: { params: { id: numbe
   const task: Task = await TaskService.getOne(id)
   return (
     <>
-      <div className={styles.container}>
         <div className={styles.head}>
           <div className={styles.title}>{task.title}</div>
           <div className={styles.additional}>
@@ -22,11 +21,10 @@ export default async function TaskInfo({ params: { id } }: { params: { id: numbe
             </p>
           </div>
         </div>
-        <div className={styles.description}>
+        <p className={styles.description}>
           {task.description}
-        </div>
-        <Actions task_file_name={task.task_file as string} />
-      </div>
+        </p>
+        <Actions task_file_name={task.task_file as string} taskId={id}/>
     </>
   )
 }

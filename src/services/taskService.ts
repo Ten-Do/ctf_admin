@@ -71,6 +71,6 @@ export class TaskService {
   }
 
   static async getAnswer(taskId: number) {
-    return await $api.download(API_ENDPOINTS.getTaskAnswer(taskId))
+    return await $api.get(API_ENDPOINTS.getTaskAnswer(taskId))
   }
 }

@@ -14,7 +14,7 @@ export const API_ENDPOINTS = {
   checkTaskFlag: (id: number) => '/tasks/' + id, // post
   deleteTask: (id: number) => '/tasks/' + id,
   downloadTask: (fileName: string) => 'tasks/' + fileName, // (download file with task)
-  getTaskAnswer: (id: number) => '/answer-task/' + id,
+  getTaskAnswer: (id: number) => '/answer-task?id=' + id,
   /* USERS */
   getFullUser: (id: number) => '/user/' + id,
   getUsers: (page: number) => '/users?page=' + page,
