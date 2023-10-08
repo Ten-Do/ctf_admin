@@ -3,7 +3,11 @@ import { redirect } from 'next/navigation'
 import { nextAuthOptions } from '../api/auth/[...nextauth]/route'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(nextAuthOptions)
-  //if (session?.user?.userInfo?.role !== 'admin') redirect('/аdmin')
+  const role = await getServerSession(nextAuthOptions)
+    .then((session) => session?.user?.userInfo?.role)
+    .catch((err) => null)
+  if (!(role === 'admin' || role === 'moderator')) {
+    redirect('/аdmin')
+  }
   return <>{children}</>
 }

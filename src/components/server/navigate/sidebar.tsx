@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from './sidebar.module.css'
 import { PATHS } from '@/urls'
-
-const isAdmin = true
+import { getServerSession } from 'next-auth'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 
 type paths = keyof typeof PATHS
 type link_array = Array<[paths, string]>
@@ -35,7 +35,11 @@ const SidebarItem = ({ name, title }: SidebarItemProps) => {
   )
 }
 
-export const Sidebar = () => {
+export const Sidebar = async () => {
+  const isAdmin = await getServerSession(nextAuthOptions)
+    .then((session) => session?.user?.userInfo?.role)
+    .then((role) => role === 'admin' || role === 'moderator')
+    .catch((err) => false)
   return (
     <nav className={styles.sidebar_container}>
       <div className={styles.sidebar_block}>
