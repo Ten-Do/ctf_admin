@@ -1,4 +1,5 @@
 .overlay {
+  backdrop-filter: blur(5px);
   padding: 20vh 0 60px;
   display: flex;
   justify-content: center;

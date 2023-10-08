@@ -6,7 +6,12 @@ import { Header } from '@/components/server/header/header'
 import Image from 'next/image'
 import styles from './background_logo.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  // preload: false
+})
 
 export const metadata: Metadata = {
   title: 'CTF Admin',
@@ -15,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang='en' className={inter.className}>
+      <body>
         <div className='app'>
-          <Header />
-          <div style={{ display: 'flex', minHeight: '100%' }}>
-            <Sidebar />
+          <Sidebar />
+          <div className='main-container'>
+            <Header />
             <main>
               {children}
               <div className={styles.page_logo}>

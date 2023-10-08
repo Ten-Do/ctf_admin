@@ -1,50 +1,87 @@
 .sidebar_container {
-  display: inline-block;
-  min-width: 80px;
-  width: 80px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  z-index: 1;
   font-family: var(--font-mono);
-  border-right: 1px solid rgb(var(--border-rgb));
-  padding: 0 calc(10px + 1vw);
-  position: relative;
-  min-height: calc(100vh - 60px);
+  position: fixed;
   overflow: hidden;
   transition: all 0.2s ease-in;
   transition-delay: 0.4s;
+  bottom: 0;
+  left: 0;
 }
+/* large screen */
+@media screen and (min-width: 768px) {
+  .sidebar_container {
+    padding: 12px 24px 0;
+    border-right: 1px solid rgb(var(--border-rgb));
+    flex-direction: column;
+    height: 100vh;
+    width: 80px;
+    overflow-y: auto;
+  }
 
-.sidebar_item:hover {
-  background-color: rgba(var(--accent-rgba));
+  .sidebar_item:hover {
+    background-color: rgba(var(--accent-rgba));
+    border-radius: var(--border-radius-s);
+  }
+
+  .sidebar_container:hover {
+    min-width: fit-content;
+    transition: all 0.2s ease-in;
+    transition-delay: 0.4s;
+  }
+
+  .sidebar_container:hover .sidebar_title {
+    opacity: 1;
+    transition: all 0.2s ease-in;
+    transition-delay: 0.4s;
+  }
   
-  border-radius: var( --border-radius-s);
+  .sidebar_container:hover .item_title {
+    display: inline-block;
+    opacity: 1;
+    transition: all 0.2s ease-in;
+    transition-delay: 0.4s;
+  }
 }
 
+/* small screen */
+@media screen and (max-width: 767px) {
+  .sidebar_container {
+    padding: 8px 40px;
+    position: fixed;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    overflow-x: auto;
+  }
 
-.sidebar_container:hover {
-  min-width: 250px;
-  width: 250px;
-  transition: all 0.2s ease-in;
-  transition-delay: 0.4s;
-}
+  .sidebar_title,
+  .item_title {
+    display: none !important;
+  }
 
-.sidebar_container:hover .sidebar_title {
-  opacity: 1;
-  transition: all 0.2s ease-in;
-  transition-delay: 0.4s;
+  .sidebar_block,
+  .special_sidebar_block {
+    display: flex;
+    position: unset !important;
+  }
+
+  .sidebar_item {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .item_title {
+  display: none;
   opacity: 0;
   transition: all 0.2s ease-in;
   transition-delay: 0.4s;
   pointer-events: none;
 }
-
-.sidebar_container:hover .item_title {
-  opacity: 1;
-  transition: all 0.2s ease-in;
-  transition-delay: 0.4s;
-}
-
 
 .sidebar_block {
   margin-top: 2px;
@@ -76,4 +113,3 @@
   margin-top: 15px;
   font-size: 1.15rem;
 }
-

@@ -27,7 +27,7 @@ const SidebarItem = ({ name, title }: SidebarItemProps) => {
     <div className={styles.sidebar_item}>
       <Link href={PATHS[name]}>
         <div className='svg_container'>
-          <Image src={`/assets/sidebar_icons/${name}.svg`} alt={name} width={20} height={20} />
+          <Image src={`/assets/sidebar_icons/${name}.svg`} alt={name} width={25} height={25} />
         </div>
         <div className={styles.item_title}>{title}</div>
       </Link>
@@ -39,19 +39,18 @@ export const Sidebar = async () => {
   const isAdmin = await getServerSession(nextAuthOptions)
     .then((session) => session?.user?.userInfo?.role)
     .then((role) => role === 'admin' || role === 'moderator')
-    .catch((err) => false)
+    .catch(() => false)
   return (
     <nav className={styles.sidebar_container}>
       <div className={styles.sidebar_block}>
-        <p className={styles.sidebar_title}>Happy hacking!</p>
+        {/* <p className={styles.sidebar_title}>Happy hacking!</p> */}
         {common_links.map((elem) => (
           <SidebarItem name={elem[0]} title={elem[1]} key={elem[0]}></SidebarItem>
         ))}
       </div>
-      <hr />
       {isAdmin && (
         <div className={styles.sidebar_block}>
-          <p className={styles.sidebar_title}>Админ</p>
+          {/* <p className={styles.sidebar_title}>Админ</p> */}
           {admin_links.map((elem) => (
             <SidebarItem name={elem[0]} title={elem[1]} key={elem[0]}></SidebarItem>
           ))}
