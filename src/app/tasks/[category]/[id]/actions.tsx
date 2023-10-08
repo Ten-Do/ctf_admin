@@ -1,7 +1,7 @@
 'use client'
 import { $checkAnswer } from '@/actions/checkAnswer'
 import { $getAnswer } from '@/actions/getAnswer'
-import { TaskService } from '@/services/taskService'
+import { DownloadButton } from '@/components/client/buttons/downloadFile'
 import { showSnackbar } from '@/utils/feedback/snackbar'
 import { useRef, useState } from 'react'
 import styles from './styles.module.css'
@@ -13,9 +13,7 @@ export default function Actions({ task_file_name, taskId }: { task_file_name: st
     <>
       <div className={styles.actions}>
         <div className={styles.file}>
-          <button className='btn accent' onClick={() => TaskService.downloadTaskFile(task_file_name)}>
-            {task_file_name}
-          </button>
+          <DownloadButton task_file_name={'/tasks/' + task_file_name}>{task_file_name}</DownloadButton>
         </div>
         <div className='input-container'>
           <input ref={answerRef} name='answer' id='answer' type='text' placeholder=' ' />

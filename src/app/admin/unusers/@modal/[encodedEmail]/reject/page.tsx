@@ -4,7 +4,7 @@ import { Modal } from '@/components/client/modal/modal'
 import { useRef } from 'react'
 import styles from '@/app/admin/modal.module.css'
 
-export default function RejectRegistrationModal({ params: { id } }: { params: { id: number } }) {
+export default function RejectRegistrationModal({ params: { encodedEmail } }: { params: { encodedEmail: string } }) {
   const inputRef = useRef<HTMLTextAreaElement>(null)
   return (
     <Modal>
@@ -21,7 +21,7 @@ export default function RejectRegistrationModal({ params: { id } }: { params: { 
             if (!inputRef.current?.value) {
               inputRef.current?.classList.add('error')
             } else {
-              $rejectUserRegistration(id, inputRef.current.value)
+              $rejectUserRegistration(decodeURIComponent(encodedEmail), inputRef.current.value)
             }
           }}
         >

@@ -1,0 +1,24 @@
+.dropdown_menu {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-out;
+}
+
+.dropdown_menu label {
+  font-family: var(--font-mono);
+  font-size: inherit;
+  align-content: baseline;
+  padding: 6px 10px;
+  margin-top: 10px;
+  border: 1px solid rgba(var(--callout-border-rgba));
+}
+
+.dropdown_menu input {
+  margin-right: 16px;
+  vertical-align: baseline;
+  border-radius: 50%;
+}
+
+.item {
+  border-radius: calc(var(--border-radius-s) - 2px);
+}

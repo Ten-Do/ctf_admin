@@ -14,16 +14,17 @@ export const EndlessFeedPlaceholder = ({
   loadMore,
   className,
   loadMoreParams = [],
+  idKey = 'id',
 }: {
   ItemCard: (props: { data: any; card_href: string }) => JSX.Element
   origin: string
   loadMore: (page: number, ...loadMoreParams: any[]) => Promise<State>
   className?: string
   loadMoreParams?: any[]
+  idKey: string
 }) => {
   const [state, setState] = useState<State>({ data: [], nextPage: 1 })
   const { ref, inView } = useInView()
-  console.log(state)
   useEffect(() => {
     if (inView && state.nextPage) {
       loadMore(state.nextPage, ...loadMoreParams).then((newState) => {
@@ -44,7 +45,11 @@ export const EndlessFeedPlaceholder = ({
     <>
       <div className={className}>
         {state.data.map((item) => (
-          <ItemCard data={item} card_href={`${origin}/${item.id}`} key={item.id + Math.random()} />
+          <ItemCard
+            data={item}
+            card_href={`${origin}/${encodeURIComponent(item[idKey])}`}
+            key={item[idKey] + Math.random()}
+          />
         ))}
       </div>
       {state.nextPage && (

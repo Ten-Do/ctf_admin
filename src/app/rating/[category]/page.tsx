@@ -1,67 +1,22 @@
-import { $getRating } from '@/actions/getRating'
+import { RatingCard } from '@/components/client/cards/rating/ratingCard'
+import { UserService } from '@/services/userService'
 import { Category } from '@/types/category'
 import styles from '.././rating.module.css'
 
 async function Rating({ params: { category } }: { params: { category: Category } }) {
-  const raiting: { topUser: { nickname: string; id: number; score: number }[] } = (await $getRating(
-    category,
-    1,
-  )) as unknown
-  console.log(raiting)
+  const topUser: { nickname: string; id: number; score: number }[] = await UserService.getScoreboard(category).catch(
+    (err) => err,
+  )
+
   return (
-    <>
-      <div className={styles.triplePanel}>
-
-        <div className={styles.triplePanelElement}>
-          <div className={styles.triplePanelName}>Name</div>
-          <div className={styles.triplePanelPlace}>2 место</div>
-          <div className={styles.triplePanelScore}>110</div>
-        </div>
-
-        <div className={styles.triplePanelElement}>
-          <div className={styles.triplePanelName}>Name</div>
-          <div className={styles.triplePanelPlace}>1 место</div>
-          <div className={styles.triplePanelScore}>120</div>
-        </div>
-
-        <div className={styles.triplePanelElement}>
-          <div className={styles.triplePanelName}>Name</div>
-          <div className={styles.triplePanelPlace}>3 место</div>
-          <div className={styles.triplePanelScore}>109</div>
-        </div>
-
-      </div>
-      <div className={styles.mainPanel}>
-        <div className={styles.mainPanelColumn}>
-          <div className={styles.normalPanel}>
-            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
-          </div>
-          <div className={styles.normalPanel}>
-            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
-          </div>
-          <div className={styles.normalPanel}>
-            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
-          </div>
-          
-        </div>
-        <div className={styles.mainPanelColumn}>
-        <div className={styles.normalPanel}>
-            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
-          </div>
-          <div className={styles.normalPanel}>
-            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
-          </div>
-          <div className={styles.normalPanel}>
-            <div className={styles.normalPanelText}>12|1 <span style={{ float: 'right' }}> 11</span></div>
-          </div>
-        </div>
-      </div>
-      {raiting.topUser?.map((user, i) => (
-        <div className={styles.normalPanel} key={user.id}>
-          <div className={styles.normalPanelText}>{i + '  |  ' + user.nickname} <span style={{ float: 'right' }}>{user.score || 0}</span></div>
-        </div>
+    <div className={styles.cards}>
+      <h2>
+        Рейтинг в категории <span className={styles.category}>{category.toUpperCase()}</span>
+      </h2>
+      {topUser.map((user, i) => (
+        <RatingCard key={user.id} data={{ number: i, ...user }} />
       ))}
-    </>
+    </div>
   )
 }
 

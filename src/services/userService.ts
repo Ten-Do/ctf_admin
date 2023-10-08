@@ -3,17 +3,12 @@ import $api from '@/http/api'
 import { API_ENDPOINTS } from '../http/endPoint'
 import { Category } from '@/types/category'
 import { category } from '@/utils/arrays/category'
+import { getServerSession } from 'next-auth'
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export class UserService {
-  static async register(userInfo: User) {
-    const userFormData = new FormData()
-    userFormData.append('email', userInfo.email!)
-    userFormData.append('nickname', userInfo.nickname!)
-    userFormData.append('name', userInfo.name!)
-    userFormData.append('surname', userInfo.surname!)
-    userFormData.append('categories', JSON.stringify(userInfo.categories!))
-    userFormData.append('studentCard', userInfo.studentCard!)
-    return $api.sendForm(API_ENDPOINTS.register, userFormData)
+  static async register(userInfo: FormData) {
+    return $api.sendForm(API_ENDPOINTS.register, userInfo)
   }
 
   static async getOneFull(id: number) {
@@ -69,8 +64,20 @@ export class UserService {
     return await $api.delete(API_ENDPOINTS.deleteUser(userId))
   }
 
-  static async getScoreboard(category: Category, page: number = 0): Promise<User[]> {
-    return $api.get(API_ENDPOINTS.getScoreboard(category, page)).then((res) => res.data)
+  static async getUserScores(): Promise<User> {
+    return $api.get(API_ENDPOINTS.getUserScore).then(({ data }) => {
+      const scores: [[Category, number]] = []
+      for (const key in data) {
+        if (key.endsWith('_score')) {
+          scores.push([key.replace('_score', '') as Category, data[key]])
+        }
+      }
+      return { id: data.id, nickname: data.nickname, points: scores }
+    })
+  }
+
+  static async getScoreboard(category: Category): Promise<{ nickname: string; id: number; score: number }[]> {
+    return $api.get(API_ENDPOINTS.getScoreboard(category)).then((res) => res.data.topUser || [])
   }
 
   static async getStudentCard() {
@@ -84,9 +91,12 @@ export class UserService {
   }
 
   static async rejectCategoryRequest(user_id: number, category: Category) {
-    return await $api.delete(API_ENDPOINTS.rejectAddCategoryToUser(user_id), {
-      category,
-    })
+    const session = await getServerSession(nextAuthOptions)
+    if (session?.user.userInfo.role === 'admin') {
+      return await $api.delete(API_ENDPOINTS.rejectAddCategoryToUser_ADM(user_id, category))
+    } else {
+      return await $api.delete(API_ENDPOINTS.rejectAddCategoryToUser_MDR(user_id))
+    }
   }
 
   static async update(nickname: string, password: string, delCategories: Category[], addCategories: Category[]) {

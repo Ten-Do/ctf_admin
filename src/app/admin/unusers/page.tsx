@@ -25,7 +25,7 @@ const Unusers = () => {
           </div>
         </label>
       </div>
-      <EndlessFeedPlaceholder ItemCard={NewUserCard} origin='/admin/unusers' loadMore={$getNewUsers} />
+      <EndlessFeedPlaceholder ItemCard={NewUserCard} origin='/admin/unusers' loadMore={$getNewUsers} idKey='email'/>
     </div>
   )
 }

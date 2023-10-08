@@ -1,15 +1,12 @@
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import { signOut } from 'next-auth/react'
+import { baseHeaders } from './baseHeaders'
 import { API_ENDPOINTS } from './endPoint'
 
 const API = process.env.SERVER_API || 'http://localhost:5000/api'
 const FILE_API = process.env.SERVER_FILES_API || 'http://localhost:5000/cyberpolygon-files'
-const baseHeaders: HeadersInit = {
-  'ngrok-skip-browser-warning': 'true',
-  'Content-Type': 'application/json',
-  credentials: 'include',
-}
+
 
 const authFetch = async (url: string, config: RequestInit = {}): Promise<Response> => {
   // request interceptor
@@ -115,27 +112,7 @@ class HttpClient {
     return await this._handleResponse(response)
   }
 
-  async download(url: string, saveas: string): Promise<void> {
-    const response = await authFetch(FILE_API + url)
 
-    if (!response.ok) {
-      throw {
-        message: 'Failed to download file.. Try again later',
-        status: response.status,
-      }
-    }
-
-    return await response.blob().then((data) => {
-      const url = window.URL.createObjectURL(data),
-        anchor = document.createElement('a')
-      anchor.href = url
-      anchor.download = saveas
-      anchor.click()
-
-      window.URL.revokeObjectURL(url)
-      document.removeChild(anchor)
-    })
-  }
 
   async sendForm(url: string, data: FormData, method: string = 'POST') {
     const response = await authFetch(this.baseURL + url, {

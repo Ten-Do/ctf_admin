@@ -18,6 +18,7 @@ const RequestCard = ({ data, card_href }: { data: User; card_href: string }) => 
         <button
           onClick={(e) => {
             e.stopPropagation()
+            e.preventDefault()
             $acceptCategoryRequest(data.id, data.category!)
           }}
           className={styles.plus_button + ' svg_container'}
@@ -27,6 +28,7 @@ const RequestCard = ({ data, card_href }: { data: User; card_href: string }) => 
         <button
           onClick={(e) => {
             e.stopPropagation()
+            e.preventDefault()
             $rejectCategoryRequest(data.id, data.category!)
           }}
           className={styles.minus_button + ' svg_container'}

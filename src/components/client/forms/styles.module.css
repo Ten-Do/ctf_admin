@@ -18,7 +18,7 @@
 .form select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-top: 15px;
   border: 1px solid rgba(var(--callout-border-rgba));
   border-radius: var(--border-radius-s);
   background-color: rgba(var(--background-start-rgb), 0.3);

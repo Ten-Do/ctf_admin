@@ -214,6 +214,7 @@ p.subtext {
 
 /*  INPUT FIELD  */
 .input-container {
+  margin-top: 16px;
   position: relative;
   font-family: inherit;
 }
@@ -232,6 +233,7 @@ p.subtext {
 
 .input-container input,
 .input-container textarea {
+  width: 100%;
   font-family: var(--font-mono);
   border: 1px solid rgba(var(--callout-border-rgba));
   border-radius: var(--border-radius-s);

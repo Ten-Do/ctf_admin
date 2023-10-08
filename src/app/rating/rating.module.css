@@ -1,114 +1,49 @@
-.backgroundSquare {
-	margin: 45px 25px 0;
-	display: flex;
-	grid-gap: 10px;
-	align-content: center;
-	justify-content: flex-start;
-	position: relative;
-	align-items: center;
-	overflow: hidden;
-	flex-direction: column;
+.userScores {
+  padding: 16px;
+  border: 1px solid rgba(var(--callout-border-rgba));
+  border-radius: var(--border-radius);
+  margin-top: 10px;
+  background-color: rgba(var(--accent-rgb), 0.15);
 }
 
-
-.topPanel {
-	width: 350px;
-	height: 150px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-around;
-	padding: 15px;
-	border: 2px solid rgba(var(--callout-border-rgba));
-	border-radius: 15px;
-	margin: 0 auto 0 0 ;
-
+.userScores h1 {
+  position: relative;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-	.topPanelName {
-		font-weight: 700;
-		font-size: 40px;
-	}
-
-	.topPanelPlace {
-		font-weight: 400;
-		font-size: 36px;
-		color: rgba(var(--foreground-rgba));
-	}
-
-.triplePanel {
-	width: 100%;
-	display: flex;
-	justify-content:space-between;
-	margin-bottom: 20px;
+.userScores h1::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+}
+.userScores h1::after {
+  content: '✨';
+  position: absolute;
+  right: 0;
 }
 
-
-	.triplePanelElement{
-		width: 330px;
-		height: 156px;
-		border-radius: 30px;
-	}
-
-	.triplePanelElement:first-child{
-		background:linear-gradient(315deg, #444444, #FFFFFF, #444444);
-		margin-top: 45px;
-	}
-
-
-	.triplePanelElement:nth-child(2){
-		background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
-	}
-
-	.triplePanelElement:nth-child(3){
-		margin-top: 80px;
-		background: linear-gradient(45deg, rgba(205, 127, 50, 1) 0%, rgba(205, 127, 50, 1) 30%, rgba(255, 215, 0, 1) 50%, rgba(205, 127, 50, 1) 70%, rgba(205, 127, 50, 1) 100%);
-	}
-
-	.triplePanelName {
-		margin-top: 22px;
-		margin-left: 30px;
-		font-weight: 700;
-		font-size: 26px;
-	}
-
-	.triplePanelPlace {
-		display: inline-block;
-		margin-left: 30px;
-		margin-right: 55px;
-		font-weight: 700;
-		font-size: 32px;
-	}
-
-	.triplePanelScore {
-        
-		display: inline-block;
-		font-weight: 700;
-		font-size: 48px;
-	}
-
-.normalPanel {
-	width: 100%;
-	height: 72px;
-	background-color: rgba(var(--border-rgb), 0.5);
-	border-radius: 20px;
-	margin-bottom: 15px;
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-	.normalPanelText {
-		font-weight: 700;
-		font-size: 32px;
-		padding: 20px;
-	}
-
-.mainPanel {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	gap: 10px	;
+.pointCard {
+  border: 1px solid rgba(var(--callout-border-rgba));
+  padding: 10px;
 }
-.mainPanelColumn {
-	width: 50%;
-	display: flex;
-	flex-direction: column;
+
+.cards {
+  margin-top: 26px;
+}
+
+.cards > h2 {
+  text-align: center;
+  color: rgba(var(--foreground-rgba));
+}
+
+.cards > h2 .category {
+  font-family: var(--font-mono);
+  color: rgba(var(--accent-rgba));
 }

@@ -9,11 +9,11 @@ export const CategoryToggler = async ({origin}: {origin: string}) => {
   const categories: Category[] = session?.user?.userInfo?.categories || []
   return (
     <>
-      <div className={styles.btl__settings}>
-        <div className={styles.btl__list}>
+      <div className={styles.container}>
+        <div className={styles.categories}>
           {categories.map((elem) => (
             <Link href={`/${origin}/${elem}`} key={elem}>
-              <div className={styles.btl__point}>{elem}</div>
+              <p className={styles.category}>{elem}</p>
             </Link>
           ))}
         </div>

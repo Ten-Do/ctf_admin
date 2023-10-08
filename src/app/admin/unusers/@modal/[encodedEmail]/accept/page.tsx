@@ -4,7 +4,7 @@ import { Modal } from '@/components/client/modal/modal'
 import { useRef } from 'react'
 import styles from '@/app/admin/modal.module.css'
 
-export default function AcceptRegistrationModal({ params: { id } }: { params: { id: number } }) {
+export default function AcceptRegistrationModal({ params: { encodedEmail } }: { params: { encodedEmail: string } }) {
   const inputRef = useRef<HTMLTextAreaElement>(null)
   return (
     <Modal>
@@ -18,7 +18,7 @@ export default function AcceptRegistrationModal({ params: { id } }: { params: { 
         <button
           className='btn access'
           onClick={() => {
-            $acceptUserRegistration(id, inputRef.current?.value)
+            $acceptUserRegistration(decodeURIComponent(encodedEmail), inputRef.current?.value)
           }}
         >
           Добавить
