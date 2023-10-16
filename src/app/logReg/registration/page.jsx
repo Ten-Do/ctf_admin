@@ -1,11 +1,12 @@
 'use client'
 import Image from 'next/image'
 import styles from './styles.module.css'
+import Link from 'next/link'
 import { useRef } from 'react'
 import { $register } from '@/actions/register'
 import { category } from '@/utils/arrays/category'
 import { Checkboxes } from '@/components/server/checkboxes/checkboxes'
-
+import { PATHS } from '@/urls'
 const Registration = () => {
   let fileChange = () => {
     console.log(document.getElementById('file-input').files[0])
@@ -18,7 +19,6 @@ const Registration = () => {
 
   let fileRef = useRef(null)
   let fileNameRef = useRef(null)
-
 
   return (
     <div className={styles.form_container}>
@@ -77,6 +77,9 @@ const Registration = () => {
           Зарегистрироваться
         </button>
       </form>
+      <Link href={PATHS.login} className='btn accent'>
+        Уже есть аккаунт
+      </Link>
     </div>
   )
 }

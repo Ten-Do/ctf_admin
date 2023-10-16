@@ -1,0 +1,22 @@
+.form_container {
+  padding-top: 10vh;
+  min-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form_container form {
+  width: 80vw;
+  max-width: 400px;
+  width: minmax(40vw, 400px);
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.form_container form button {
+  margin-top: 20px;
+}

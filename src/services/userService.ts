@@ -2,7 +2,7 @@ import { User } from '@/types/user'
 import $api from '@/http/api'
 import { API_ENDPOINTS } from '../http/endPoint'
 import { Category } from '@/types/category'
-import { category } from '@/utils/arrays/category'
+import { CATEGORIES } from '@/utils/arrays/category'
 import { getServerSession } from 'next-auth'
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 
@@ -11,17 +11,23 @@ export class UserService {
     return $api.sendForm(API_ENDPOINTS.register, userInfo)
   }
 
+  static async login(
+    userInfo: FormData,
+  ): Promise<{ data: { accessToken: string; refreshToken: string; userInfo: User } }> {
+    return $api.sendForm(API_ENDPOINTS.login, userInfo)
+  }
+
   static async getOneFull(id: number) {
     return $api
       .get(API_ENDPOINTS.getFullUser(id))
       .then((res) => res.data)
       .then((data) => {
-        const user: User = { id: data.id!, points: {}, categories: [] }
+        const user: User = { id: data.id!, points: [], categories: [] }
         for (const key in data) {
           if (key.endsWith('_score')) {
-            user.points[key.replace('_score', '') as Category] = data[key]
-          } else if (category.includes(key)) {
-            if (data[key]) user.categories.push(key)
+            user.points?.push([key.replace('_score', '') as Category, data[key]])
+          } else if (CATEGORIES.includes(key as Category)) {
+            if (data[key]) user.categories?.push(key as Category)
           } else {
             user[key] = data[key]
           }
@@ -80,10 +86,6 @@ export class UserService {
     return $api.get(API_ENDPOINTS.getScoreboard(category)).then((res) => res.data.topUser || [])
   }
 
-  static async getStudentCard() {
-    return await $api.download(API_ENDPOINTS.downloadStudentCard)
-  }
-
   static async acceptCategoryRequest(user_id: number, category: Category) {
     return await $api.put(API_ENDPOINTS.acceptAddCategoryToUser(user_id), {
       category,
@@ -92,7 +94,7 @@ export class UserService {
 
   static async rejectCategoryRequest(user_id: number, category: Category) {
     const session = await getServerSession(nextAuthOptions)
-    if (session?.user.userInfo.role === 'admin') {
+    if (session?.user.role === 'admin') {
       return await $api.delete(API_ENDPOINTS.rejectAddCategoryToUser_ADM(user_id, category))
     } else {
       return await $api.delete(API_ENDPOINTS.rejectAddCategoryToUser_MDR(user_id))

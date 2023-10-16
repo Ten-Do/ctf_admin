@@ -11,31 +11,33 @@ export const nextAuthOptions: NextAuthOptions = {
       clientId: process.env.YANDEX_CLIENT_ID as string,
       clientSecret: process.env.YANDEX_CLIENT_SECRET as string,
     }),
-    Credentials({
-      name: 'Credentials',
-      credentials: {
-        email: { label: 'Email', type: 'email', placeholder: 'example@mail.ru' },
-        password: { label: 'Password', type: 'password' },
-      },
-      async authorize(credentials, req) {
-        return await $api
-          .post(API_ENDPOINTS.login, credentials)
-          .then((res) => res.data || null)
-          .catch((err) => null)
-      },
-    }),
+    // Credentials({
+    //   name: 'Credentials',
+    //   credentials: {
+    //     email: { label: 'Email', type: 'email', placeholder: 'example@mail.ru' },
+    //     password: { label: 'Password', type: 'password' },
+    //   },
+    //   async authorize(credentials, req) {
+    //     return await $api
+    //       .post(API_ENDPOINTS.login, credentials)
+    //       .then((res) => res.data || null)
+    //       .catch((err) => null)
+    //   },
+    // }),
   ],
 
   callbacks: {
-    async jwt({ token, user, account }) {
-      if (account?.provider === 'credentials') {
-        user.userInfo.categories = Object.keys(user.userInfo.categories)
-        token.user = user
+    async jwt({ token, trigger, session }) {
+      if (trigger === 'update') {
+        console.log('UPDATE: ', session)
+        token.user = session
       }
       return token
     },
     async session({ session, token }) {
       if (token.user) session.user = token.user
+      // console.log(session)
+
       return session
     },
   },

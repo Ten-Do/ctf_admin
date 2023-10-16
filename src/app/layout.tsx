@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main>
               {children}
               <div className={styles.page_logo}>
-                <Image src='/logo_colored.svg' alt='Next.js Logo' width={400} height={400} priority={false} />
+                <Image src='/logo_colored.svg' alt='Next.js Logo' width={300} height={300} priority={false} />
               </div>
             </main>
           </div>

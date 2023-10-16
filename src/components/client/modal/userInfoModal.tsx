@@ -17,7 +17,7 @@ export const UserInfoModal = ({ data }: { data: User }) => {
 
         <div className={styles.card}>
           <h2>Набранные очки</h2>
-          {Object.entries(data.points!).map(([category, points]) => (
+          {data.points!.map(([category, points]) => (
             <p key={category}>{`${category}: ${points}`}</p>
           ))}
         </div>

@@ -37,7 +37,7 @@ const SidebarItem = ({ name, title }: SidebarItemProps) => {
 
 export const Sidebar = async () => {
   const isAdmin = await getServerSession(nextAuthOptions)
-    .then((session) => session?.user?.userInfo?.role)
+    .then((session) => session?.user?.role)
     .then((role) => role === 'admin' || role === 'moderator')
     .catch(() => false)
   return (

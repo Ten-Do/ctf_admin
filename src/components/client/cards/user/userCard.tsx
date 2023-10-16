@@ -17,7 +17,7 @@ interface UserCardProps {
 export const UserCard = ({ data: { id, nickname, name, surname, email }, card_href }: UserCardProps) => {
   return (
     <Link href={card_href} className={styles.card_container + ' card'}>
-      <div className={styles.indivfo}>
+      <div className={styles.indivfo + ' trim-text'}>
         <h3 className={styles.nickname}>{nickname || 'NickName'}</h3>
         <div className={styles.name}>{name + ' ' + surname}</div>
         <div className={styles.email}>{email}</div>

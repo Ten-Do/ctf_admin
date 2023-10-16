@@ -9,9 +9,7 @@ async function RatingLayout({ children }: { children: React.ReactNode }) {
     <>
       {userScore && (
         <div className={styles.userScores}>
-          <h1>
-            {userScore.nickname}
-          </h1>
+          <h1>{userScore.nickname}</h1>
           <div className={styles.points}>
             {userScore.points?.length ? (
               userScore.points?.map(([category, score]) => (
@@ -26,7 +24,7 @@ async function RatingLayout({ children }: { children: React.ReactNode }) {
         </div>
       )}
 
-      <CategoryToggler origin='rating' />
+      <CategoryToggler origin='rating' allCategories />
       {children}
     </>
   )

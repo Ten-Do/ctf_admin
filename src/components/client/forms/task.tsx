@@ -27,7 +27,8 @@ const Task_Form = ({ data = defaultData, submitHandler }: TaskFormProps) => {
   const taskFileRef = useRef<HTMLAnchorElement>(null),
     solutionFileRef = useRef<HTMLAnchorElement>(null),
     { data: sessionData } = useSession()
-  const categories: Category[] = sessionData?.user?.userInfo?.categories || []
+  const categories: Category[] = sessionData?.user?.categories || []
+  
   return (
     <div className={styles.form_container}>
       <form

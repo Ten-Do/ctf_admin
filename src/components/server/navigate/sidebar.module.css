@@ -49,10 +49,9 @@
 /* small screen */
 @media screen and (max-width: 767px) {
   .sidebar_container {
-    padding: 8px 40px;
+    padding: 8px 10px;
     position: fixed;
     flex-direction: row;
-    justify-content: center;
     width: 100vw;
     overflow-x: auto;
   }

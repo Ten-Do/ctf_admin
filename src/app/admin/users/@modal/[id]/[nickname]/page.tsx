@@ -3,9 +3,12 @@ import { $deleteUser } from '@/actions/deleteUser'
 import { Modal } from '@/components/client/modal/modal'
 import { useRef } from 'react'
 import styles from '@/app/admin/modal.module.css'
+import { useRouter } from 'next/navigation'
+import { showSnackbar } from '@/utils/feedback/snackbar'
 
 export default function UserAbout({ params: { id, nickname } }: { params: { id: number; nickname: string } }) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const router = useRouter()
   return (
     <Modal>
       <h2>Вы действительно хотите удалить пользователя?</h2>
@@ -15,14 +18,20 @@ export default function UserAbout({ params: { id, nickname } }: { params: { id: 
       </p>
       <div className='input-container'>
         <input ref={inputRef} type='text' name='nickname' id='nickname' placeholder=' ' />
-        <label htmlFor='nickname'> Введите ник</label>
+        <label htmlFor='nickname'>Введите ник</label>
       </div>
       <div className={styles.button_container}>
         <button
-        className='btn danger'
+          className='btn danger'
           onClick={() => {
             if (inputRef.current?.value === nickname) {
               $deleteUser(id)
+                .then((res) => {
+                  document.querySelector(`a[href$='/${id}']`)?.remove()
+                  router.back()
+                  showSnackbar(res)
+                })
+                .catch((res) => showSnackbar(res))
             } else {
               inputRef.current?.classList.add('error')
             }
@@ -30,7 +39,9 @@ export default function UserAbout({ params: { id, nickname } }: { params: { id: 
         >
           Удалить
         </button>
-        <p className='subtext'>После нажатия на кнопку "Удалить" пользователь будет удален без возможности восстановления.</p>
+        <p className='subtext'>
+          После нажатия на кнопку "Удалить" пользователь будет удален без возможности восстановления.
+        </p>
       </div>
     </Modal>
   )

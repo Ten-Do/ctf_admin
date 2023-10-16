@@ -7,20 +7,10 @@
   align-items: center;
 }
 
-
-.form_container form>div {
+.form_container form > div {
   margin-top: 2rem;
   width: 100%;
 }
-
-
-
-
-
-
-
-
-
 
 .file_input_container {
   width: 574px;

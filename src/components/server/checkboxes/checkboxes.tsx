@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-export const Checkboxes = ({ options, children }: { options: string[]; children: React.ReactNode }) => {
+export const Checkboxes = ({ options = [], children }: { options: string[]; children: React.ReactNode }) => {
   return (
     <>
       <div className={styles.dropdown_menu + ' btn '}>

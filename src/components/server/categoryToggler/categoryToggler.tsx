@@ -1,12 +1,24 @@
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
 import { Category } from '@/types/category'
+import { CATEGORIES } from '@/utils/arrays/category'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 import styles from './categoryToggler.module.css'
 
-export const CategoryToggler = async ({origin}: {origin: string}) => {
-  const session = await getServerSession(nextAuthOptions)
-  const categories: Category[] = session?.user?.userInfo?.categories || []
+export const CategoryToggler = async ({
+  origin,
+  allCategories = false,
+}: {
+  origin: string
+  allCategories?: boolean
+}) => {
+  let categories: Category[]
+  if (allCategories) {
+    categories = CATEGORIES
+  } else {
+    const session = await getServerSession(nextAuthOptions)
+    categories = session?.user?.categories || []
+  }
   return (
     <>
       <div className={styles.container}>
