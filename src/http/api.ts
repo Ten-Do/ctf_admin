@@ -1,17 +1,13 @@
-import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route'
-import { getServerSession } from 'next-auth'
-import { signOut } from 'next-auth/react'
+import { $refresh } from '@/actions/refresh'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 import { baseHeaders } from './baseHeaders'
-import { API_ENDPOINTS } from './endPoint'
 
 const API = process.env.SERVER_API || 'http://localhost:5000/api'
-const FILE_API = process.env.SERVER_FILES_API || 'http://localhost:5000/cyberpolygon-files'
-
 
 const authFetch = async (url: string, config: RequestInit = {}): Promise<Response> => {
   // request interceptor
-  const session = await getServerSession(nextAuthOptions)
-  config.headers = { ...config.headers, Authorization: `Bearer ${session?.user?.accessToken}` }
+  config.headers = { ...config.headers, Authorization: `Bearer ${cookies().get('hash')?.value}` }
 
   // request
   let response = await fetch(url, config)
@@ -19,13 +15,19 @@ const authFetch = async (url: string, config: RequestInit = {}): Promise<Respons
   // response interceptor
   if (!response.ok && response.status === 401) {
     // refresh & request
-    const refreshResponse = await fetch(API + API_ENDPOINTS.refresh, { credentials: 'include' })
-    if (session?.user) session.user = await refreshResponse.json()
-    config.headers = { ...config.headers, Authorization: `Bearer ${session?.user?.accessToken}` }
-    response = await fetch(url, config)
+    response = await $refresh()
+      .then(() => {
+        config.headers = { ...config.headers, Authorization: `Bearer ${cookies().get('hash')?.value}` }
+        return fetch(url, config)
+      })
+      .catch(() => {
+        redirect('/logReg/login')
+      })
   }
 
-  if (!response.ok && response.status === 401) signOut()
+  if (!response.ok && response.status === 401) {
+    redirect('/logReg/login')
+  }
 
   return response
 }
@@ -111,8 +113,6 @@ class HttpClient {
 
     return await this._handleResponse(response)
   }
-
-
 
   async sendForm(url: string, data: FormData, method: string = 'POST') {
     const response = await authFetch(this.baseURL + url, {

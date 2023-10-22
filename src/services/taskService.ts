@@ -55,7 +55,7 @@ export class TaskService {
 
   static async edit(newTask: FormData): Promise<{ status: number; data: { message: string } }> {
     console.log(newTask)
-    return await $api.sendForm(API_ENDPOINTS.putTask, newTask, 'PUT' )
+    return await $api.sendForm(API_ENDPOINTS.putTask, newTask, 'PUT')
   }
 
   static async delete(taskId: number): Promise<{ status: number; data: { message: string } }> {
@@ -64,10 +64,6 @@ export class TaskService {
 
   static async checkFlag(taskId: number, answer: string): Promise<{ status: number; data: { message: string } }> {
     return await $api.post(API_ENDPOINTS.checkTaskFlag(taskId), { answer })
-  }
-
-  static async downloadTaskFile(taskFileName: string) {
-    return await $api.download(API_ENDPOINTS.downloadTask(taskFileName))
   }
 
   static async getAnswer(taskId: number) {

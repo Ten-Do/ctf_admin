@@ -1,13 +1,14 @@
+'use client'
+import { $refresh } from '@/actions/refresh'
 import { baseHeaders } from '@/http/baseHeaders'
-import { API_ENDPOINTS } from '@/http/endPoint'
-import { getSession, signOut } from 'next-auth/react'
+import { redirect } from 'next/navigation'
+import Cookies from 'js-cookie'
 
-const API = process.env.SERVER_API || 'http://localhost:5000/api'
 const FILE_API = process.env.SERVER_FILES_API || 'http://localhost:5000/cyberpolygon-files'
 
 export const download = async (file_name: string): Promise<Blob | null> => {
-  const session = await getSession()
-  const accessToken = session?.user?.accessToken
+  const accessToken = Cookies.get('hash')
+
   if (!accessToken) return null
   const config: RequestInit = {
     headers: { ...baseHeaders, Authorization: `Bearer ${accessToken}` },
@@ -19,12 +20,18 @@ export const download = async (file_name: string): Promise<Blob | null> => {
   // response interceptor
   if (!response.ok && response.status === 401) {
     // refresh & request
-    const refreshResponse = await fetch(API + API_ENDPOINTS.refresh, { credentials: 'include' })
-    config.headers = { ...config.headers, Authorization: `Bearer ${accessToken}` }
-    response = await fetch(FILE_API + file_name, config)
+    response = await $refresh()
+      .then(() => {
+        config.headers = { ...config.headers, Authorization: `Bearer ${Cookies.get('hash')}` }
+        return fetch(FILE_API + file_name, config)
+      })
+      .catch(() => {
+        redirect('/logReg/login')
+      })
   }
 
-  if (!response.ok && response.status === 401) signOut()
+  if (response.status === 401) redirect('/logReg/login')
   else if (!response.ok) return null
+
   return await response.blob()
 }

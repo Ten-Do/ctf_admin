@@ -21,7 +21,7 @@ export default function Actions({ task_file_name, taskId }: { task_file_name: st
         </div>
         <button
           className='btn access'
-          onClick={() => $checkAnswer(taskId, answerRef.current!.value).then((message) => showSnackbar(message))}
+          onClick={() => $checkAnswer(taskId, answerRef.current!.value).then(({data}) => showSnackbar(data.message))}
         >
           Ответить
         </button>

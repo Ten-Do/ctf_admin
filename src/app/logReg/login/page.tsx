@@ -5,16 +5,19 @@ import { PATHS } from '@/urls'
 import { showSnackbar } from '@/utils/feedback/snackbar'
 import { SessionProvider, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { FormEventHandler } from 'react'
 import styles from './styles.module.css'
 
 const WrappedLogin = () => {
   const { update } = useSession()
+  const router = useRouter()
   const login: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
     $login(new FormData(e.target as HTMLFormElement))
       .then((userInfo: User) => {
         update(userInfo)
+        router.replace('/')
       })
       .catch(showSnackbar)
   }

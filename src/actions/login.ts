@@ -8,7 +8,7 @@ export const $login = async (newUserData: FormData): Promise<User> => {
   return await UserService.login(newUserData)
     .then(({ data }) => {
       cookies().set('refreshToken', data.refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })
-      cookies().set('hash', data.accessToken, { httpOnly: true, maxAge: 60 * 60 * 1000 })
+      cookies().set('hash', data.accessToken, { httpOnly: false, maxAge: 60 * 60 * 1000 })
       const cats = []
       for (const cat in data.userInfo.categories) {
         if (data.userInfo.categories[cat]) cats.push(cat)
